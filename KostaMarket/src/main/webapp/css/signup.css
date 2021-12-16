@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	display: block;
+	margin: 8px;
+}
+
+div, th, td, li, dt, dd, p {
+	word-break: break-all;
+}
+
+div.tit_page {
+	width: 1050px;
+	height: auto;
+	margin: 0 234.6px;
+	padding: 50px 0px 51px 0px;
+}
+
+div {
+	display: block;
+}
+
+div#content {
+	width: 1519.2px;
+	height: 1189.4px;
+}
+
+body, input, select, textarea, button {
+	font-family: 'Noto Sans KR', sans-serif;
+	line-height: 1;
+	letter-spacing: -.05em;
+	color: #4c4c4c;
+	font-size: 12px;
+	max-width: 100%;
+}
+
+h2.tit {
+	width: 1050px;
+	height: 35px;
+	text-align: center;
+	font-size: 28px;
+}
+
+#body {
+	height: 100%;
+	width: 1024px;
+	margin: 0 auto;
+	padding-bottom: 24px;
+	min-height: 100vh;
+}
+
+p.page_sub {
+	border-bottom: 3px solid black;
+	width: 640px;
+	margin: 0 auto;
+	text-align: right;
+}
+
+table.tbl_comm {
+	margin-left: 234.6px;
+	margin-right: 234.6px;
+	border: 1px solid black;
+	width: 640px;
+	height: 1064.4px;
+	margin: 0 auto;
+}
+
+/* 다 만들면 테두리 없애기*/
+th, td {
+	border: 1px solid black;
+}
+
+th {
+	width: 159px;
+	height: 64px;
+	font-size: 14px;
+	padding: 20px 0px 0px 20px;
+	vertical-align: top;
+	text-align: left;
+	font-size: 14px;
+}
+
+td {
+	width: 481px;
+	height: 64px;
+	display: table-cell;
+}
+
+tr.fst>th {
+	padding: 29px 0px 0px 20px;
+}
+
+tr.fst td, tr td, div#codeNum {
+	padding: 10px 0;
+	border-top: 0;
+	font-size: 14px;
+	vertical-align: top;
+	text-align: left;
+}
+
+td>input, input.inp {
+	background: #FFFFFF;
+	width: 332px;
+	height: 44px;
+	padding: 0px 14px;
+}
+
+a.btn.default {
+	border: 1px solid #5f0080;
+	background-color: #fff;
+	color: #5f0080;
+	display: inline-block;
+	width: 120px;
+	margin-left: 5px;
+	vertical-align: top;
+	height: 44px;
+	border-radius: 3px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 40px;
+	text-align: center;
+	outline: none;
+}
+
+a#addressSearch {
+	display: block;
+	overflow: hidden;
+	width: 332px;
+	height: 44px;
+	border: 1px solid #5f0080;
+	border-radius: 3px;
+	text-align: center;
+}
+
+span.screen_out {
+	position: absolute;
+	left: -9999em;
+}
+
+span.ico {
+	color: red;
+}
+
+.page_aticle {
+	width: 1050px;
+	margin: 0 auto;
+}
