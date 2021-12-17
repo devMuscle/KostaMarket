@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+div#main {
+	border-bottom: 1px solid #f7f7f7;
+}
+
+div, th, td, li, dt, dd, p {
+	word-break: break-all;
+}
+
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body, input, select, textarea, button {
+	font-family: noto sans, malgun gothic, AppleGothic, dotum;
+	line-height: 1;
+	letter-spacing: -.05em;
+	color: #4c4c4c;
+	font-size: 12px;
+	max-width: 100%;
+}
+
+div#content {
+	position: relative;
+	min-width: 1050px;
+	padding-bottom: 60px;
+}
+
+div.section_login {
+    width: 340px;
+    margin: 0 auto;
+    padding-top: 90px;
+    letter-spacing: -.6px;
+}
