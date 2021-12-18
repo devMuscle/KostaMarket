@@ -52,75 +52,63 @@ $(document).ready(function() {
 		}
 	});
 
-	/*
-	function checkAll(){
-	   if(document.getElementById("all").checked==true){  //id 를 사용하여 하나의 객체만을 호출
-			 for(var i=0;i<3;i++) document.getElementsByName("checkBox")[i].checked=true;   //name 을 사용하여 배열 형태로 담아 호출
-		  }
-		  if(document.getElementById("all").checked==false){
-			 for(var i=0;i<3;i++) document.getElementsByName("checkBox")[i].checked=false;  
-		  }
-	}
-	*/
-
 	$("#check_all").change(function() {
 		if ($("#check_all").is(":checked")) {
-			alert("체크박스 체크했음!");
-			$("#check_1").prop("checked", true);
-			$("#private1").prop("checked", true);
-			$("#check_3").prop("checked", true);
-			$("#check_4").prop("checked", true);
-			$("#check_5").prop("checked", true);
-			$("#check_6").prop("checked", true);
-			$("#check_7").prop("checked", true);
+			$checklist.prop("checked", true);
 		} else {
-			alert("체크박스 체크 해제!");
-			$("#check_1").prop("checked", false);
-			$("#private1").prop("checked", false);
-			$("#check_3").prop("checked", false);
-			$("#check_4").prop("checked", false);
-			$("#check_5").prop("checked", false);
-			$("#check_6").prop("checked", false);
-			$("#check_7").prop("checked", false);
+			$checklist.prop("checked", false);
 		}
 	});
 
 	$("#check_4").change(function() {
 		if ($("#check_4").is(":checked")) {
-			alert("체크박스 체크했음!");
-
 			$("#check_5").prop("checked", true);
 			$("#check_6").prop("checked", true);
 		} else {
-			alert("체크박스 체크 해제!");
 			$("#check_5").prop("checked", false);
 			$("#check_6").prop("checked", false);
 		}
 	});
 
+	let $checklist = $("input[name=check]");
+	let $checkAll = $("#check_all");
 
-	/*
-	function checkEvent(){
-		let $checkAll = $("#check_all");
-		
-		$(this).change(function(){
-			if($(this).prop("checked", true)){
-				$checkAll.prop("checked", true);
-			}else{
-				$checkAll.prop("checked", false);
-			}
-		});
-	};*/
-
-	function checkEvent() {
-		let $checkAll = $("#check_all");
-
-		if ($(this).prop("checked", false)) {
+	$checklist.change(function() {
+		if (!$(this).is(":checked")) {
 			$checkAll.prop("checked", false);
 		}
-	};
+	});
+
+	$("#address").click(function() {
+		$("#sample6_postcode").css("display", "inline-block");
+		$("#sample6_address").css("display", "inline-block");
+		$("#sample6_detailAddress").css("display", "inline-block");
+
+	});
+
+	/*
+	let $formObj = $("#signup");
 	
-	for (var i = 0; i < 7; i++) {
-		document.getElementsByName("check")[i].addEventListener("change", checkEvent);
-	}
+	$formObj.submit(function(){
+		
+		let ajaxUrl = $(this).attr("action");
+		let ajaxMethod = $(this).attr("method");
+		let sendData = $(this).serialize();
+		
+		alert("전송데이터:35" + sendData);
+		
+		$.ajax({
+			url: ajaxUrl,
+			method:ajaxMethod,
+			data: {sendData},
+			
+			
+		})
+		
+		return false;
+	})
+*/
 });
+
+	
+		

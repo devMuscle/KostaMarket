@@ -429,7 +429,6 @@ div.type_form_member_join p.txt_guide.square span.txt {
 	display: block;
 }
 
-
 div.type_form_member_join p.txt_guide.square {
 	display: inline-block;
 	padding: 10px 0 9px;
@@ -481,4 +480,30 @@ div.type_form_member_join input[type=checkbox]:checked+.ico {
 
 tr.reg_agree {
 	border-top: 0.5px solid black;
+}
+
+input[type="button"]#address {
+	display: block;
+	overflow: hidden;
+	width: 332px;
+	height: 44px;
+	border: 1px solid #5f0080;
+	border-radius: 3px;
+	text-align: center;
+	border: 1px solid #5f0080;
+	background-color: #fff;
+	color: #5f0080;
+	display: inline-block;
+	font-size: 14px;
+	background: url(https://res.kurly.com/pc/service/common/2006/ico_search.svg) no-repeat 0 50%;
+	background-color: transparent;
+	text-decoration: none;
+	font-family: 'Noto Sans KR';
+	font-weight : 700;
+}
+
+input[type="text"]#sample6_postcode, input[type="text"]#sample6_address, input[type="text"]#sample6_detailAddress{
+	width: 332px;
+	height: 44px;
+	display : none;
 }
