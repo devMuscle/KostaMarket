@@ -4,7 +4,7 @@ public class Customer {
 	private String id;
 	private String pw;
 	private String name;
-	private int zoneCode;
+	private String zoneCode;
 	private String roadAddress;
 	private String detailAddress;
 	private String gender;
@@ -13,8 +13,25 @@ public class Customer {
 	private String email;
 	private int memberShipPoint;
 
+
 	public Customer() {
 		super();
+	}
+
+	public Customer(String id, String pw, String name, String zoneCode, String roadAddress, String detailAddress,
+			String gender, String birthday, String phone, String email, int memberShipPoint) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.zoneCode = zoneCode;
+		this.roadAddress = roadAddress;
+		this.detailAddress = detailAddress;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.phone = phone;
+		this.email = email;
+		this.memberShipPoint = memberShipPoint;
 	}
 
 	public String getId() {
@@ -41,11 +58,11 @@ public class Customer {
 		this.name = name;
 	}
 
-	public int getZoneCode() {
+	public String getZoneCode() {
 		return zoneCode;
 	}
 
-	public void setZoneCode(int zoneCode) {
+	public void setZoneCode(String zoneCode) {
 		this.zoneCode = zoneCode;
 	}
 

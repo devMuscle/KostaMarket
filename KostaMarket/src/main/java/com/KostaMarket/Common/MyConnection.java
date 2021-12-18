@@ -10,7 +10,7 @@ public class MyConnection {
 	static {
 		//1. JDBC드라이버로드
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -18,9 +18,9 @@ public class MyConnection {
 	
 	public static Connection getConnection() throws SQLException {
 		Connection con = null;
-		String url="jdbc:oracle:thin:@localhost:1521:xe"; // localhost대신 ip값도 가능
-		String user="hr";
-		String password="hr";
+		String url="jdbc:mysql://27.96.135.250:3306/kosta?serverTimezone=UTC&characterEncoding=UTF-8"; // localhost대신 ip값도 가능
+		String user="kosta";
+		String password="kosta";
 		con = DriverManager.getConnection(url, user, password);
 		System.out.println("DB와 연결 성공");
 		return con;
