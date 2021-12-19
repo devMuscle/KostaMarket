@@ -18,11 +18,15 @@ public class MyConnection {
 	
 	public static Connection getConnection() throws SQLException {
 		Connection con = null;
+		
 		String url="jdbc:mysql://27.96.135.250:3306/kosta?serverTimezone=UTC&characterEncoding=UTF-8"; // localhost대신 ip값도 가능
 		String user="kosta";
 		String password="kosta";
+		
 		con = DriverManager.getConnection(url, user, password);
+		
 		System.out.println("DB와 연결 성공");
+		
 		return con;
 	}
 	
