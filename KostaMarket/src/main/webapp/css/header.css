@@ -1,0 +1,497 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+/*reset으로 초기화 시키기*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+/*전체 폰트 적용*/
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  height: 100%;
+}
+
+/*이걸 안주면 메인로고가 위로 올라가서 클리어 보스 시켜줘야 함.*/
+.claerfix {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.emph {
+  color: #5f0080;
+}
+
+/* header1 */
+/*z-index : 3차원적으로? 맨 앞으로 화면에 제일 앞에 보여주기 위해?*/
+#header1 {
+  width: 1050px;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+/*회원, 로그인, 고객센터 메뉴 오른쪽 위치*/
+#header1 .header1_menu {
+  font-size: 13px;
+  float: right;
+}
+
+#header1 .menu {
+  position: relative;
+  z-index: 400;
+  float: left;
+}
+
+#header1 .link_menu {
+  float: left;
+  height: 37px;
+  padding: 0 10px;
+  color: #333;
+  line-height: 35px;
+  white-space: nowrap;
+}
+
+/*고객센터 마우스 호버했을 때 서브메뉴가 보여지고, 서브메뉴도 호버 가능하게*/
+#header1 .menu.csCenter .link_menu:hover ~ ul.cs_sub,
+#header1 .menu.csCenter ul.cs_sub:hover {
+  display: block;
+}
+
+/*화살표 아이콘 넣기 ( 유저의 헤더화면에서는 유저명,고객센터 비회원 헤더화면에서는 고객센터 옆에만 있음*/
+#header1 .menu.menu:not(.join, .login):before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 16px;
+  width: 8px;
+  height: 5px;
+  background: url(../img/header/icon_down.png) no-repeat 0 0;
+}
+
+/*유저메뉴, 고객센터 메뉴 아래의 서브메뉴*/
+#header1 .cs_sub,
+#header1 .us_sub {
+  display: none; /*숨기기*/
+  position: absolute;
+  top: 30px;
+  width: 115px;
+  padding: 5px 9px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+#header1 .cs_sub li,
+#header1 .us_sub li {
+	padding-top: 3px;
+}
+
+/*유저메뉴, 고객센터 메뉴와 화살표 사이 간격 주기*/
+#header1 .menu.csCenter .link_menu,
+#header1 .menu.user .link_menu {
+  padding-right: 13px;
+}
+
+/*유저메뉴 마우스 호버했을 때 서브메뉴가 보여지고, 서브메뉴도 호버 가능하게*/
+#header1 .menu.user .link_menu:hover ~ ul.us_sub,
+#header1 .menu.user ul.us_sub:hover {
+  display: block;
+}
+
+/* 헤더영역 2번째 부분 메인 로고 관련 css */
+#header2 {
+  position: relative;
+  width: 1050px;
+  height: 63px;
+  margin: 0 auto;
+}
+#header2 .logo {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 200px;
+  height: 79px;
+  margin-left: -100px;
+}
+#header2 .logo img {
+  display: block;
+  width: 103px;
+  height: 79px;
+  margin: 0 auto;
+}
+
+#header3 {
+	z-index: 301;
+}
+
+/* 헤더영역 3번째 부분 gnb관련 css */
+#header3 .gnb_kurly {
+  position: relative;
+  z-index: 300;
+  min-width: 1050px;
+  background-color: #fff;
+  letter-spacing: -0.3px;
+  border-bottom: 2px solid #fafafa;
+}
+#header3 .inner_gnbkurly {
+  position: relative;
+  width: 1050px;
+  height: 56px;
+  margin: 0 auto;
+}
+#header3 .gnb_main {
+  overflow: hidden;
+  width: 1050px;
+  height: 56px;
+  margin: 0 auto;
+}
+#header3 .gnb_main .gnb {
+  float: left;
+  width: 100%;
+  height: 56px;
+}
+#header3 .gnb_main .gnb li {
+  float: left;
+  height: 56px;
+}
+#header3 .gnb_main .gnb a {
+  overflow: hidden;
+  float: left;
+  width: 124px;
+  height: 40px;
+  padding: 16px 0 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/*메뉴 폰트 굵기*/
+#header3 .gnb_main .gnb a .txt,
+#header3 .gnb_main .gnb a .total_txt {
+  font-weight: 700;
+  margin-right: 40px;
+}
+
+#header3 .gnb_main .gnb a .total_txt:hover {
+	font-weight: 700;
+	color: #5f0080;
+}
+
+/*메뉴 호버했을 때 글씨 변하는  css*/
+#header3 .gnb_main .gnb a .txt:hover {
+  color: #5f0080;
+  border-bottom: 1.5px solid #5f0080;
+}
+
+/*전체 카테고리 왼쪽 아이콘 css*/
+#header3 .gnb_main .menu1 .ico {
+  float: left;
+  width: 16px;
+  height: 14px;
+  margin: 4px 0 0 0;
+  background: url(../img/header/icon_category.png) no-repeat;
+}
+
+#header3 .gnb_main .menu1 .ico_hover {
+	float: left;
+  width: 16px;
+  height: 14px;
+  left: -1px;
+  margin: 4px 0 0 0px;
+	background: url(../img/header/ico_gnb_all.webp) no-repeat;
+}
+
+#header3 .gnb_main .menu1 a {
+  width: 185px;
+}
+
+#header3 .gnb_main .gnb .menu5 {
+  background: none;
+}
+
+/* 검색창 관련 css */
+#header3 .gnb_search {
+  position: absolute;
+  right: 130px;
+  top: 10px;
+  width: 223px;
+}
+#header3 .gnb_search .inp_search {
+  width: 195px;
+  height: 36px;
+  padding: 0 23px 0 14px;
+  border: 1px solid #f7f7f6;
+  border-radius: 18px;
+  background-color: #f7f7f7;
+  font-weight: 400;
+  font-size: 12px;
+  color: #666;
+  line-height: 16px;
+  outline: none;
+}
+#header3 .gnb_search .search_icon {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  width: 30px;
+  height: 30px;
+}
+
+/* 지도검색 관련 css */
+#header3 .gnb_location {
+  position: absolute;
+  right: 50px;
+  top: 6px;
+}
+#header3 .gnb_location .location_btn {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+#header3 .gnb_location .location_icon {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  width: 40px;
+  height: 40px;
+}
+
+/* 장바구니 관련 css */
+#header3 .gnb_cart {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: -5px;
+  top: 6px;
+}
+#header3 .gnb_cart .cart_btn {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+#header3 .gnb_cart .cart_icon {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  width: 40px;
+  height: 40px;
+}
+
+/* 여기서부터 카테고리 css */
+
+.gnb_sub {
+  display: none;
+  width: 219px;
+  position: absolute;
+  z-index: 301;
+  top: 55px;
+  padding-top: 1px;
+  background-color: #fff;
+}
+
+.inner_sub {
+  width: 217px;
+  height: 100%;
+  border: 1px solid #ddd;
+}
+
+.gnb_menu {
+  width: 219px;
+  height: auto;
+}
+
+.gnb_menu li:first-child {
+  padding-top: 0;
+}
+
+.gnb_menu li:first-child .menu {
+  height: 35px;
+  padding-top: 8px;
+}
+
+.gnb_menu li {
+  width: 100%;
+  text-align: left;
+}
+
+.gnb_menu li:hover {
+  background-color: #f7f7f7;
+}
+
+.gnb_menu .menu {
+  display: block;
+  overflow: hidden;
+  width: 205px;
+  height: 35px;
+  padding: 8px 0 0 14px;
+  cursor: pointer;
+}
+
+.ico {
+  float: left;
+  width: 24px;
+  height: 24px;
+}
+
+.ico img {
+  width: 24px;
+  height: 24px;
+}
+
+.text {
+  float: left;
+  padding: 0 4px 0 10px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #333;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.gnb_menu .sub_menu {
+  position: absolute;
+  z-index: 0;
+  left: 200px;
+  top: 2px;
+  width: 217px;
+  height: 646px;
+  padding: 0 0 0 20px;
+  background: url(https://res.kurly.com/images/common/bg_1_1.gif) repeat 0 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sub_menu li:first-child {
+  padding-top: 8px;
+}
+
+.sub_menu li {
+  padding-top: 8px;
+}
+
+.sub_menu .sub {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 35px;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #333;
+  line-height: 18px;
+  cursor: pointer;
+}
+
+.name img {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  padding-left: 70px;
+}
+
+/* 주소등록 block */
+.location_layer {
+  display: none;
+  position: absolute;
+  z-index: 300;
+  top: 52px;
+  right: -3px;
+  width: 280px;
+  padding: 18px 18px 19px 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.location_layer:after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: -50px;
+  width: 36px;
+  height: 50px;
+  background: url(https://res.kurly.com/pc/ico/2011/ico_point_up_18x12.svg)
+    no-repeat 50% 100%;
+}
+
+.address_btns {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+}
+
+.double {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.double.address_login {
+  float: left;
+  width: 110px;
+  height: 36px;
+  border: 1px solid #5f0080;
+  background-color: #fff;
+  color: #5f0080;
+  margin-top: 17px;
+  padding-bottom: 2px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+.location_zone {
+	right: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+.double.address_search {
+  float: right;
+  width: 159px;
+  height: 36px;
+  border: 1px solid #5f0081;
+  background-color: #5f0080;
+  color: #fff;
+  margin-top: 17px;
+  padding-bottom: 2px;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 32px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* 일정 scroll 넘어가면 fixed하는 css */
+.gnb_stop {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.current .text {
+  font-weight: 700;
+  color: #5f0080;
+}
+
+.current .sub_menu {
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.5s;
+}

@@ -22,6 +22,31 @@ public class Product {
 	private String productLivestockHistory;
 	private String productInstructions;
 
+	
+	
+	public Product(String productCode, String productName, String productImage, int productPrice, int productCategory,
+			int productSalePct, String productWeight, String productCapacity, String productDelivery,
+			String productCountryOrigin, String productPacking, String productAllergy, String productExpiration,
+			String productBreedingCode, String productLivestockHistory, String productInstructions) {
+		super();
+		this.productCode = productCode;
+		this.productName = productName;
+		this.productImage = productImage;
+		this.productPrice = productPrice;
+		this.productCategory = productCategory;
+		this.productSalePct = productSalePct;
+		this.productWeight = productWeight;
+		this.productCapacity = productCapacity;
+		this.productDelivery = productDelivery;
+		this.productCountryOrigin = productCountryOrigin;
+		this.productPacking = productPacking;
+		this.productAllergy = productAllergy;
+		this.productExpiration = productExpiration;
+		this.productBreedingCode = productBreedingCode;
+		this.productLivestockHistory = productLivestockHistory;
+		this.productInstructions = productInstructions;
+	}
+
 	public String getProductCode() {
 		return productCode;
 	}
