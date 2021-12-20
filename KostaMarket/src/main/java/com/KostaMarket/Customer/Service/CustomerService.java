@@ -14,4 +14,16 @@ public class CustomerService {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public boolean idDupCheck(String idVal) throws Exception{
+		boolean result = customerRepository.idCheck(idVal);
+		return result;
+	}
+	
+	public boolean emailCheck(String emailVal) throws Exception{
+		boolean result = customerRepository.emailCheck(emailVal);
+		return result;
+	}
+	
 }
