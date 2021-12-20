@@ -34,10 +34,14 @@ public class DeleteCartServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//session으로 로그인한 아이디 값 받아오기
 		HttpSession session = request.getSession();
 		String userid = (String)session.getAttribute("userid");
 		
+		//cartlist.jsp에서 삭제할 상품 정보 + 아이디 받아오기
 		String[] useCart= request.getParameterValues("db");
+		
+		//받아온 list가 null이 아닌 지 1차 확인
 		try {
 			for(int i = 0; i < useCart.length; i++){
 				System.out.println(useCart[i]);
@@ -46,18 +50,20 @@ public class DeleteCartServlet extends HttpServlet {
 			
 		}
 		
+		//SQL문으로 조회할 CartDAO 객체를 생성
 		CartDAO dao = new CartDAO();
 		String path = "";
 		
 		dao.deleteCart(useCart); //deleteCart() 메서드로 카트 정보 삭제
 		
 		List<Cart> list = dao.cartList(); //cartList() 메서드로 카트 정보 조회
-		List userCart = new ArrayList(); 
+		List userCart = new ArrayList(); //jsp에 전송할 list 생성
+		
 		
 		for(int i = 0; i < list.size(); i++) {
 			Cart cart = (Cart)list.get(i);
 			String id = cart.getID();
-			if(id.equals("id3")) {
+			if(id.equals("id2")) {
 				System.out.println(id);
 				userCart.add(cart);
 			} else {
