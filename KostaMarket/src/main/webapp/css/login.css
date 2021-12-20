@@ -1,5 +1,21 @@
 @charset "UTF-8";
 
+html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+div {
+	display: block;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
 div#main {
 	border-bottom: 1px solid #f7f7f7;
 }
@@ -38,8 +54,115 @@ div#content {
 }
 
 div.section_login {
-    width: 340px;
-    margin: 0 auto;
-    padding-top: 90px;
-    letter-spacing: -.6px;
+	width: 340px;
+	margin: 0 auto;
+	padding-top: 90px;
+	letter-spacing: -.6px;
+	font-family: noto sans;
+	color: #333;
+}
+
+div.section_login h3.tit_login {
+	font-weight: 800;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+}
+
+div.section_login div.write_form {
+	padding-top: 36px;
+}
+
+div.section_login div.write_view.login_view {
+	text-align: center;
+}
+
+div.section_login input[type=number], div.section_login input[type=text],
+	div.section_login input[type=password] {
+	width: 100%;
+	height: 54px;
+	padding: 0 19px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: #fff;
+	font-size: 14px;
+	line-height: 20px;
+	outline: none;
+}
+
+div.section_login [name=password], div.section_login [name=ordno], div.section_login div.write_view.login_view [name=srch_mail],
+	div.section_login [name=srch_id] {
+	margin-top: 10px;
+}
+
+div.section_login div.checkbox_save {
+	overflow: hidden;
+	padding-bottom: 28px;
+}
+
+div.section_login div.checkbox_save label.label_checkbox {
+	float: left;
+	margin-top: 9px;
+}
+
+div.section_login label.label_checkbox {
+	position: relative;
+	padding: 0 0 3px 22px;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+div.section_login label.label_checkbox [type=checkbox] {
+	position: absolute;
+	left: 0;
+	top: 3px;
+	opacity: 0;
+}
+
+input[type=checkbox], input[type=radio] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+/*체크박스 체크됐을때 안먹음*/
+div.section_login label.label_checkbox.checked:before {
+    background: url(https://res.kurly.com/pc/service/order/1908/ico_checkbox_on.png) no-repeat 50% 50%;
+}
+
+div.section_login label.label_checkbox:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 16px;
+    height: 17px;
+    background: url(https://res.kurly.com/pc/service/order/1908/ico_checkbox_off.png) no-repeat 50% 50%;
+}
+
+div.section_login div.login_search {
+    float: right;
+    padding-top: 13px;
+}
+
+div.section_login div.login_search {
+    float: right;
+    padding-top: 13px;
+}
+
+div.section_login div.login_search a.link {
+    float: left;
+    font-size: 13px;
+}
+
+div.section_login div.login_search span.bar {
+    float: left;
+    width: 1px;
+    height: 10px;
+    margin: 3px 6px 0;
+    background-color: #333;
+}
+
+div.section_login div.login_search a.link {
+    float: left;
+    font-size: 13px;
 }

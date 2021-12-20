@@ -85,11 +85,11 @@
 								<th>아이디<span class="ico">*<span class="screen_out">필수항목</span></span></th>
 								<td><input type="text" name="id" id="id_input" value=""
 									maxlength="16" label="아이디"
-									placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"> <input type="hidden" name="chk_id"
-									label="아이디중복체크" value=""> <a class="btn default">중복확인</a>
+									placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"> <a
+									class="btn default" id="id_check" )>중복확인</a>
 									<p class="txt_guide square" id="id_text" style="display: none">
 										<span class="txt txt_case1 good" id="id_text1">6자 이상의
-											영문 혹은 영문과 숫자를 조합</span> <span class="txt txt_case2 bad">아이디
+											영문 혹은 영문과 숫자를 조합</span> <span class="txt txt_case2 bad" id="id_text2">아이디
 											중복확인</span>
 									</p></td>
 							</tr>
@@ -101,8 +101,7 @@
 									<p class="txt_guide square" style="display: none" id="pw_txt">
 										<span class="txt txt_case1" id=pw_chk1>10자 이상 입력</span> <span
 											class="txt txt_case2" id=pw_chk2>영문/숫자/특수문자(공백 제외)만
-											허용하며, 2개 이상 조합</span> <span class="txt txt_case3" id=pw_chk3>동일한
-											숫자 3개 이상 연속 사용 불가</span>
+											허용하며, 2개 이상 조합</span>
 									</p></td>
 							</tr>
 							<tr class="member_pwd">
@@ -122,10 +121,10 @@
 							</tr>
 							<tr>
 								<th>이메일<span class="ico">*<span class="screen_out">필수항목</span></span></th>
-								<td><input type="text" name="email" value="" data-email=""
-									size="30" label="이메일" placeholder="예: marketkurly@kurly.com">
+								<td><input type="text" name="email" size="30"
+									placeholder="예: marketkurly@kurly.com" id="email_input">
 									<input type="hidden" name="chk_email" label="이메일중복체크">
-									<a class="btn default">중복확인</a></td>
+									<a class="btn default" id="email_check">중복확인</a></td>
 							</tr>
 							<tr class="field_phone">
 								<th>휴대폰<span class="ico">*<span class="screen_out">필수항목</span></span></th>
@@ -142,17 +141,19 @@
 							</tr>
 							<tr>
 								<th>주소<span class="ico">*<span class="screen_out">필수항목</span></span></th>
-								<td class="field_address"><input type="hidden" id="zonecode" size="5" value="">
+								<td class="field_address"><input type="hidden"
+									id="zonecode" size="5" value="">
 
 
 									<p>
 										<input type="button" onclick="sample6_execDaumPostcode()"
 											value="주소검색" id="address"><br> <input
-											type="text" id="sample6_postcode" placeholder="우편번호" name="zonecode"><br>
-										<input type="text" id="sample6_address" placeholder="주소" name="address"><br>
+											type="text" id="sample6_postcode" placeholder="우편번호"
+											name="zonecode"><br> <input type="text"
+											id="sample6_address" placeholder="주소" name="address"><br>
 										<input type="text" id="sample6_detailAddress"
-											placeholder="나머지 주소를 입력해 주세요" name="detailAddress"> <input type="text"
-											id="sample6_extraAddress" placeholder="참고항목"
+											placeholder="나머지 주소를 입력해 주세요" name="detailAddress"> <input
+											type="text" id="sample6_extraAddress" placeholder="참고항목"
 											style="display: none">
 									</p>
 
@@ -186,30 +187,6 @@
 									<p class="txt_guide">
 										<span class="txt bad"></span>
 									</p>
-								</td>
-							</tr>
-							<tr class="route" id="selectRecommend">
-								<th>추가입력 사항</th>
-								<td>
-									<div class="group_radio">
-										<span class="radio_wrapper"> <label class="checked">
-												<input type="radio" name="recommend" id="recommendId"
-												label="추천인아이디"> <span class="ico"></span>추천인 아이디
-										</label>
-										</span> <span class="radio_wrapper"> <label class="">
-												<input type="radio" name="recommend" id="eventName"
-												label="참여이벤트명"> <span class="ico"></span>참여 이벤트명
-										</label>
-										</span>
-									</div>
-									<div class="input_wrapper selected">
-										<input type="text" name="recommid" value="" class="inp"
-											placeholder="추천인 아이디를 입력해주세요." id="recommid">
-										<p class="txt_guide">
-											추천인 아이디와 참여 이벤트명 중 하나만 선택 가능합니다. <br> 가입 이후, 수정이 불가합니다.
-											<br> 대소문자 및 띄어쓰기에 유의해주세요.
-										</p>
-									</div>
 								</td>
 							</tr>
 							<tr class="reg_agree">
@@ -289,7 +266,8 @@
 						</tbody>
 					</table>
 					<div id="formSubmit" class="form_footer">
-						<button type="submit" class="btn active btn_join">가입하기</button>
+						<button type="submit" class="btn active btn_join"
+							id="submit_button">가입하기</button>
 					</div>
 				</form>
 			</div>

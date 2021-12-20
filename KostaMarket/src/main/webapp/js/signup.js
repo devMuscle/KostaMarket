@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+
 	$("#id_input").on("click", function() {
 		$("#id_text").css("display", "block");
 	})
@@ -78,6 +80,7 @@ $(document).ready(function() {
 			$checkAll.prop("checked", false);
 		}
 	});
+	
 
 	$("#address").click(function() {
 		$("#sample6_postcode").css("display", "inline-block");
@@ -86,29 +89,87 @@ $(document).ready(function() {
 
 	});
 
-	/*
-	let $formObj = $("#signup");
-	
-	$formObj.submit(function(){
-		
-		let ajaxUrl = $(this).attr("action");
-		let ajaxMethod = $(this).attr("method");
-		let sendData = $(this).serialize();
-		
-		alert("전송데이터:35" + sendData);
-		
+
+	$("#pw_input").keyup(function() {
+		let pwVal1 = $("#pw_input").val();
+		let pwVal2 = $("#pw2_input").val();
+
+		if (pwVal1 != pwVal2) {
+			$("#pw2_txt").css("color", "red");
+		} else {
+			$("#pw2_txt").css("color", "black");
+		}
+	});
+
+	$("#pw2_input").keyup(function() {
+		let pwVal1 = $("#pw_input").val();
+		let pwVal2 = $("#pw2_input").val();
+
+		if (pwVal1 != pwVal2) {
+			$("#pw2_txt").css("color", "red");
+		} else {
+			$("#pw2_txt").css("color", "black");
+		}
+	});
+
+	let $idCheckObj = $("#id_check");
+
+	$idCheckObj.click(function() {
+
+		let $idObj = $("#id_input");
+
+		if ($idObj.val().trim() == "") {
+			alert("아이디를 입력하세요");
+			$idObj.focus();
+			return false;
+		}
+
+		let ajaxUrl = "./idcheck";
+		let ajaxMethod = "get";
+		let idValue = $idObj.val().trim();
 		$.ajax({
 			url: ajaxUrl,
-			method:ajaxMethod,
-			data: {sendData},
-			
-			
-		})
-		
-		return false;
-	})
-*/
+			method: ajaxMethod,
+			data: { id: idValue },
+			success: function(responseObj) {
+				if (responseObj.status == 0) {
+					alert("이미 사용중인 아이디입니다.");
+				} else if (responseObj.status == 1) {
+					alert("사용가능한 이이디입니다.");
+					$("#id_text2").css("color", "green");
+					
+				}
+			},
+		});
+	});
+	
+	let $emailCheckObj = $("#email_check");
+	
+	$emailCheckObj.click(function() {
+		let $emailObj = $("#email_input");
+
+		if ($emailObj.val().trim() == "") {
+			alert("이메일을 입력하세요");
+			$emailObj.focus();
+			return false;
+		}
+
+		let ajaxUrl = "./emailcheck";
+		let ajaxMethod = "get";
+		let emailValue = $emailObj.val().trim();
+		$.ajax({
+			url: ajaxUrl,
+			method: ajaxMethod,
+			data: { email: emailValue },
+			success: function(responseObj) {
+				if (responseObj.status == 0) {
+					alert("이미 사용중인 이메일.");
+				} else if (responseObj.status == 1) {
+					alert("사용가능한 이메일.");
+				}
+			},
+		});
+	});
 });
 
-	
-		
+
