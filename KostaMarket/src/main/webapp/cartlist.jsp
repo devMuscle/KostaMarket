@@ -41,7 +41,7 @@ List<Cart> list = (List)request.getAttribute("list");
 							int totalPrice = 0;
 							int totalSalePrice = 0;
 							int flagI = 0;
-							String id = "B";
+							String id = "A";
 							String roadAddress = "배송지를 입력하고";
 							String detailAddress = "배송유형을 확인해 보세요!";
 							try{
