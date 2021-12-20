@@ -1,4 +1,4 @@
-package com.KostaMarket.Product.Repository;
+package com.KostaMarket.Product.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import com.KostaMarket.Common.MyConnection;
 import com.KostaMarket.Product.vo.Product;
 
-public class ProductRepository {
+public class ProductDAO {
 
 	public Product retrieveProductInfo(String productCodeInfo) throws Exception {
 		Connection con = null;
@@ -35,7 +35,7 @@ public class ProductRepository {
 
 		try {
 
-			con = MyConnection.getConnection(); // Connection : DB연결
+			con = MyConnection.getConnection(); // Connection : DB연결  << new 객채를 하지 않는 이유
 			pstmt = con.prepareStatement(SQL); // PrepatedStatement : SQL송신
 
 			pstmt.setString(1, productCodeInfo);
