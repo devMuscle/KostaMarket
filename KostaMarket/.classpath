@@ -5,9 +5,8 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v10.0"/>
-	<classpathentry kind="lib" path="C:/Users/hongs/Downloads/json-20160212.jar"/>
-	<classpathentry kind="lib" path="D:/230/KostaMarket/ojdbc8-21.1.0.0.jar"/>
-	<classpathentry kind="lib" path="D:/230/KostaMarket/servlet-api-2.5.jar"/>
-	<classpathentry kind="lib" path="D:/230/KostaMarket/mysql-connector-java-8.0.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/SW/Eclipse/eclipse/mysql-connector-java-8.0.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/SW/Eclipse/eclipse/ojdbc8-21.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/SW/Eclipse/eclipse/servlet-api-2.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

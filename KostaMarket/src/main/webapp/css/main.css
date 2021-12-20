@@ -141,7 +141,7 @@ h3 {
   width: 52px;
   height: 52px;
   border-radius: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.35);
 }
 .slick-track button:before {
   font-family: "xeicon";
@@ -234,7 +234,6 @@ h3 {
 .css-1usngog {
   position: relative;
   z-index: 150;
-  border: orangered solid;
 }
 
 .css-13sxcdl {
@@ -272,6 +271,9 @@ h3 {
   background: none;
   outline: 0px;
   user-select: none;
+}
+.em4wzeq0 {
+  background-color: rgba(0, 0, 0, 0);
 }
 .css-13fhmnl {
   position: relative;
@@ -328,4 +330,68 @@ h3 {
   line-height: normal;
   text-decoration: line-through;
   margin-top: 2px;
+}
+
+.ListSwiper button {
+  position: absolute;
+  z-index: 100;
+  top: 40%;
+  border: none;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 1px 1px 3px rgba(3, 3, 3, 0.3);
+}
+.ListSwiper button:before {
+  font-family: "xeicon";
+  color: #5f0080;
+  font-size: 18px;
+}
+
+.ListSwiper button.slick-prev {
+  left: -2%;
+  font-size: 0;
+  color: transparent;
+}
+
+.ListSwiper button.slick-prev:before {
+  content: "\e93b";
+}
+
+.ListSwiper button.slick-next {
+  right: -2%;
+  font-size: 0;
+  color: transparent;
+}
+.ListSwiper button.slick-next:before {
+  content: "\e93e";
+}
+.css-1wv14ue:first-of-type {
+  margin-top: 0px;
+}
+.css-1wv14ue {
+  margin: 40px 0px;
+}
+.css-1i60c0e {
+  width: 1050px;
+  margin: 0px auto;
+}
+
+.css-4o4zgy {
+  position: relative;
+  display: block;
+  height: 140px;
+  overflow: hidden;
+}
+
+.css-4o4zgy > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.css-1i60c0e {
+  width: 1050px;
+  margin: 0px auto;
 }
