@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet("/detailgoods")
 public class DetailGoodsServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;  //세션?
 	ProductService productService = new ProductService();
 
 	@Override

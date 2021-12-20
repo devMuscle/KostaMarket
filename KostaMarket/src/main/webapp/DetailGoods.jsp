@@ -21,50 +21,67 @@
 <%-- import product_detail.css --%>
 <link rel="stylesheet" type="text/css" href="./css/product_detail.css">
 <script type="text/javascript"><%@include file="./DetailGoods.js"%></script>
+
+<style>
+goods-add-product {
+	position: relative;
+}
+
+goods-add-product-title {
+	font-size: 13px;
+	font-weight: 900;
+	line-height: 1.8;
+}
+
+goods-add-product-title:befroe {
+	width: 20px;
+	height: 5px;
+	background-color: #000;
+	display: block;
+	content: '';
+}
+</style>
 </head>
 <body>
 
-	<%!
-		
-		String product_code;
-		String product_allergy;
-		String product_breeding_code;
-		String product_capacity;
-		String product_country_origin;
-		String product_delivery;
-		String product_expiration;
-		String product_image;
-		String product_instructions;
-		String product_livestock_history;
-		String product_name;
-		String product_packing;
-		int product_price;
-		int product_sale_pct;
-		String product_weight;
-		int product_category;
-	%>
-	
+	<%!String product_code;
+	String product_allergy;
+	String product_breeding_code;
+	String product_capacity;
+	String product_country_origin;
+	String product_delivery;
+	String product_expiration;
+	String product_image;
+	String product_instructions;
+	String product_livestock_history;
+	String product_name;
+	String product_packing;
+	int product_price;
+	int product_sale_pct;
+	String product_weight;
+	int product_category;%>
+
 	<%
-	
-		Product productObj = (Product)request.getAttribute("product");
-		
-		product_code = productObj.getProductCode();
-		product_allergy = productObj.getProductAllergy();;
-		product_breeding_code = productObj.getProductBreedingCode();;
-		product_capacity = productObj.getProductCapacity();
-		product_country_origin = productObj.getProductCountryOrigin();
-		product_delivery = productObj.getProductDelivery();
-		product_expiration = productObj.getProductExpiration();
-		product_image = productObj.getProductImage();
-		product_instructions = productObj.getProductInstructions();
-		product_livestock_history = productObj.getProductLivestockHistory();
-		product_name = productObj.getProductName();
-		product_packing = productObj.getProductPacking();
-		product_price = productObj.getProductPrice();
-		product_sale_pct = productObj.getProductSalePct();
-		product_weight = productObj.getProductWeight();
-		product_category = productObj.getProductCategory();
-		
+	Product productObj = (Product) request.getAttribute("product");
+
+	product_code = productObj.getProductCode();
+	product_allergy = productObj.getProductAllergy();
+	;
+	product_breeding_code = productObj.getProductBreedingCode();
+	;
+	product_capacity = productObj.getProductCapacity();
+	product_country_origin = productObj.getProductCountryOrigin();
+	product_delivery = productObj.getProductDelivery();
+	product_expiration = productObj.getProductExpiration();
+	product_image = productObj.getProductImage();
+	product_instructions = productObj.getProductInstructions();
+	product_livestock_history = productObj.getProductLivestockHistory();
+	product_name = productObj.getProductName();
+	product_packing = productObj.getProductPacking();
+	product_price = productObj.getProductPrice();
+	product_sale_pct = productObj.getProductSalePct();
+	product_weight = productObj.getProductWeight();
+	product_category = productObj.getProductCategory();
 	%>
 
 
@@ -113,17 +130,16 @@
 									name="p_qty" value="${dto.getP_qty()}" /> <span
 									class="btn_share">
 									<button id="btnShare" onclick="onDisplay();">공유하기</button>
-								</span> <strong class="name"><%=product_name %></strong> <span
+								</span> <strong class="name"><%=product_name%></strong> <span
 									class="short_desc">간단한 설명 ex:너무 좋아 멜론!</span>
 							</p>
 							<p class="goods_price">
 								<span class="position"> <span class="dc"> <span
-										class="dc_price"> <span class="won" id="price"><%=product_price %>원</span>
+										class="dc_price"> <span class="won" id="price"><%=product_price%>원</span>
 
 											<span class="dc_percent"> <span class="per">%</span></span>
 
-									</span></span>
-								<%--회원 할인가 end--%> <%-- 할인 전 금액 --%>
+									</span></span> <%--회원 할인가 end--%> <%-- 할인 전 금액 --%>
 								</span> <span class="not_login"> <span>로그인 후, 적립혜택이
 										제공됩니다.</span>
 								</span>
@@ -134,75 +150,99 @@
 							<div class="goods_info">
 								<dl class="list fst">
 									<dt class="tit">판매단위</dt>
-									<dd class="desc"><%=product_capacity %></dd>
+									<dd class="desc"><%=product_capacity%></dd>
 								</dl>
 								<dl class="list">
 									<dt class="tit">중량/용량</dt>
-									<dd class="desc"><%=product_weight %>
+									<dd class="desc"><%=product_weight%>
 										<br>
 									</dd>
 								</dl>
 								<dl class="list">
 									<dt class="tit">배송구분</dt>
 									<%-- --%>
-									<dd class="desc"><%=product_delivery %></dd>
+									<dd class="desc"><%=product_delivery%></dd>
 								</dl>
-								<%if(product_country_origin!=null){%>
+								<%
+								if (product_country_origin != null) {
+								%>
 								<dl class="list">
 									<dt class="tit">원산지</dt>
-									<dd class="desc"><%=product_country_origin %></dd>
+									<dd class="desc"><%=product_country_origin%></dd>
 								</dl>
-								<%}
-									else{} %>
+								<%
+								} else {
+								}
+								%>
 
 								<dl class="list">
 									<dt class="tit">포장타입</dt>
 									<dd class="desc">
-										<%=product_packing %>
+										<%=product_packing%>
 										<br> <strong class="emph">택배배송은 에코포장이 스티로폼으로
 											대체됩니다.</strong>
 									</dd>
 								</dl>
 
-								<%if(product_country_origin!=null){%>
+								<%
+								if (product_country_origin != null) {
+								%>
 								<dl class="list">
 									<dt class="tit">알레르기정보</dt>
-									<dd class="desc"><%=product_country_origin %></dd>
+									<dd class="desc"><%=product_country_origin%></dd>
 								</dl>
-								<%}
-									else{} %>
+								<%
+								} else {
+								}
+								%>
 
-								<%if(product_expiration!=null){%>
+								<%
+								if (product_expiration != null) {
+								%>
 								<dl class="list">
 									<dt class="tit">유통기한</dt>
-									<dd class="desc"><%=product_expiration %></dd>
+									<dd class="desc"><%=product_expiration%></dd>
 								</dl>
-								<%}
-									else{} %>
+								<%
+								} else {
+								}
+								%>
 
-								<%if(product_breeding_code!=null){%>
+								<%
+								if (product_breeding_code != null) {
+								%>
 								<dl class="list">
 									<dt class="tit">사육환경번호</dt>
-									<dd class="desc"><%=product_breeding_code %></dd>
+									<dd class="desc"><%=product_breeding_code%></dd>
 								</dl>
-								<%}
-									else{} %>
+								<%
+								} else {
+								}
+								%>
 
-								<%if(product_livestock_history!=null){%>
+								<%
+								if (product_livestock_history != null) {
+								%>
 								<dl class="list">
 									<dt class="tit">축산물이력정보</dt>
-									<dd class="desc"><%=product_livestock_history %></dd>
+									<dd class="desc"><%=product_livestock_history%></dd>
 								</dl>
-								<%}
-									else{} %>
+								<%
+								} else {
+								}
+								%>
 
-								<%if(product_instructions!=null){%>
+								<%
+								if (product_instructions != null) {
+								%>
 								<dl class="list">
 									<dt class="tit">안내사항</dt>
-									<dd class="desc"><%=product_instructions %></dd>
+									<dd class="desc"><%=product_instructions%></dd>
 								</dl>
-								<%}
-									else{} %>
+								<%
+								} else {
+								}
+								%>
 
 								<%-- --%>
 							</div>
@@ -372,5 +412,32 @@
 		</div>
 	</div>
 	<%-- div.main end --%>
+
+	<%-- 페이지 위로 올리는 버튼 //처음엔 안보이다가 스크롤 내릴 때 보이는 기능 추가 --%>
+	<div id="topUp">
+		<a href="#top" id="pageTop" class="on"
+			style="opacity: 1; bottom: 25px;">맨 위로가기</a>
+	</div>
+	<%-- 연관상품 --%>
+	<div class="goods-add-product">
+		<h3 class="goods-add-product-title">RELATED PRODUCT</h3>
+	
+
+	<%-- 상단 탭  --%>
+
+	<ul id="ul_product" class="goods-view-infomation-tab-group">
+
+		<li><a href="#content1"
+			class="goods-view-infomation-tab-anchor __active">상품설명</a></li>
+
+		<li><a href="#content2"
+			class="goods-view-infomation-tab-anchor __active">상세정보</a></li>
+
+		<li><a href="#content3"
+			class="goods-view-infomation-tab-anchor __active">후기</a></li>
+
+		<li><a href="#content4"
+			class="goods-view-infomation-tab-anchor __active">문의</a></li>
+	</ul>
 </body>
 </html>
