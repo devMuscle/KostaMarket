@@ -30,7 +30,7 @@ List<Cart> list = (List)request.getAttribute("list");
                 <div id = "leftBlock">
                     <div class="innerSelect">
                         <label class = "checkLabel">
-                            <input type="checkbox" class = "checkAll" name='checkAll1' value='checkAll' checked = "" onclick = "checkAll(this); getCheckedCnt();">
+                            <input type="checkbox" id = "boxa" class = "checkAll" name='checkAll1' value='checkAll' checked = "" onclick = "checkAll(this); getCheckedCnt();"><label for = "boxa" class = "chkAllWord">&nbsp&nbsp전체선택</label>
                					<%
                						String arrow = null;
                						try {
@@ -38,9 +38,9 @@ List<Cart> list = (List)request.getAttribute("list");
     										arrow = c.getCartCode();
     									}
                							if(arrow == null) { %>
-               								<span class = "chkAllWord">전체선택(<div id = "chkNum"><%=list.size()-1%></div> /<%=list.size()-1%>)</span>
+               								(<div id = "chkNum"><%=list.size()-1%></div> /<%=list.size()-1%>)</span>
                							<% } else { %>
-               								<span class = "chkAllWord">전체선택(<div id = "chkNum"><%=list.size()%></div> /<%=list.size()%>)</span>
+               								(<div id = "chkNum"><%=list.size()%></div> /<%=list.size()%>)</span>
                							<% }
                							} catch(NullPointerException e) {
 										}%>
@@ -85,7 +85,7 @@ List<Cart> list = (List)request.getAttribute("list");
 										      </thead>
 										      <tbody>
 										        <tr id = "tline">
-										        	<td class = "chkdetail"><input type="checkbox" id = "code<%=flagI%>"class = "chkbox" name='chkbox' value = "<%=productCode%>" checked = "" onclick = "checkDetailAll(); getCheckedCnt();"></td>
+										        	<td class = "chkdetail"><input type="checkbox" id = "code<%=flagI%>" class = "chkbox" name='chkbox' value = "<%=productCode%>" checked = "" onclick = "checkDetailAll(); getCheckedCnt();"><label for = "code<%=flagI%>" class = "trash">-</label></td>
 										          	<td class = "tdImg"><a href = "./detailgoods?product_code=<%=productCode%>"><img src = "<%=productImage%>"></a></td>
 										          	<td class = "tdName" id = "name<%=flagI%>"><a href = "./detailgoods?product_code=<%=productCode%>"><%=productName%>(<%=productPacking%>상품)</a></td>											    
 										          	<td class = "tdCount">
@@ -123,8 +123,7 @@ List<Cart> list = (List)request.getAttribute("list");
                      </div>
                      <div class="innerSelect">
                         <label class = "checkLabel">
-                            <input type="checkbox" class = "checkAll" name='checkAll2' value='checkAll' checked = "" onclick = "checkAll(this); getCheckedCnt();">
-                            <span class = "chkAllWord">전체선택</span>
+                            <input type="checkbox" id = "boxb" class = "checkAll" name='checkAll2' value='checkAll' checked = "" onclick = "checkAll(this); getCheckedCnt();"><label for = "boxb" class = "chkAllWord">&nbsp&nbsp전체선택</label>
                         </label>
                         <button class="btnDelete" onclick= "deleteSend()">선택삭제</button> 
                      </div>
