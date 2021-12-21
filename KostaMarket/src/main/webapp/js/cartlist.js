@@ -122,7 +122,9 @@ function deleteSend() {
 	}
 	
 	//jQuery 새로고침
-	location.reload();
+	setTimeout(function(){
+		location.reload();
+	},1000);
 }
 
 //개별삭제
@@ -155,7 +157,9 @@ function deleteOneSend(flagI) {
 	}
 	
 	//jQuery 새로고침
-	location.reload();
+	setTimeout(function(){
+		location.reload();
+	},1000);
 }
 
 //수량 변경
@@ -195,7 +199,9 @@ function modifyCount(type, flagI)  {
     resultElement.innerText = number;
 
 	//jQuery 새로고침
-	location.reload();
+	setTimeout(function(){
+		location.reload();
+	}, 1000);
   }
 
 //배송지 변경, 주문하기
