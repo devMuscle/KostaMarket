@@ -70,7 +70,7 @@ public class CustomerRepository {
 			MyConnection.close(rs, pstmt, con);
 		}
 	}
-	
+
 	public boolean emailCheck(String emailVal) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -89,6 +89,36 @@ public class CustomerRepository {
 				return true;
 			} else {
 				return false;
+			}
+		} catch (SQLException e) {
+			throw new Exception();
+		} finally {
+			MyConnection.close(rs, pstmt, con);
+		}
+	}
+
+	public String login(String idVal, String pwVal) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String insertSQL = "SELECT name FROM customer WHERE id = ? AND pw = ?";
+
+		try {
+			con = MyConnection.getConnection();
+			pstmt = con.prepareStatement(insertSQL);
+
+			pstmt.setString(1, idVal);
+			pstmt.setString(2, pwVal);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {				
+				String nameVal = rs.getString("name");
+				System.out.println("db에서 불러온 고객의 이름 : " + nameVal);
+				return nameVal;
+			}else {
+				throw new Exception("잘못된 로그인정보입니다._db");
 			}
 		} catch (SQLException e) {
 			throw new Exception();

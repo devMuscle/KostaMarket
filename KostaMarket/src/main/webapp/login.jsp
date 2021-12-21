@@ -4,6 +4,14 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./css/login.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./js/login.js"></script>
+<script>
+	$(function() {
+		loginClick();
+	});
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -17,25 +25,21 @@
 				<div class="write_form">
 					<div class="write_view login_view">
 						<form method="post" name="form" id="form" action="./login">
-							<input type="text" name="m_id" size="20" tabindex="1" value=""
+							<input type="text" name="id" size="20" tabindex="1" value=""
 								placeholder="아이디를 입력해주세요"> <input type="password"
 								name="password" size="20" tabindex="2"
 								placeholder="비밀번호를 입력해주세요">
 							<div class="checkbox_save">
-								<label class="label_checkbox"> <input type="checkbox"
-									id="chk_security" name="chk_security" value="y"
-									checked="checked"> 보안접속
-								</label>
 								<div class="login_search">
 									<a class="link" href="#none"> 아이디 찾기 </a> <span class="bar"></span>
 									<a class="link" href="#none"> 비밀번호 찾기 </a>
 								</div>
 							</div>
-							<button class="btn_type1" type="submit">
+							<button class="btn_type1" type="submit" id="login_butotn">
 								<span class="txt_type">로그인</span>
 							</button>
 						</form>
-						<a class="btn_type2 btn_member" href="#none"> <span
+						<a class="btn_type2 btn_member" href="./signup"> <span
 							class="txt_type">회원가입</span>
 						</a>
 					</div>

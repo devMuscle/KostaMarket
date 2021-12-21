@@ -1,6 +1,4 @@
-$(document).ready(function() {
-
-
+function testVisibility() {
 	$("#id_input").on("click", function() {
 		$("#id_text").css("display", "block");
 	})
@@ -12,7 +10,9 @@ $(document).ready(function() {
 	$("#pw2_input").on("click", function() {
 		$("#pw2_txt").css("display", "block");
 	})
+}
 
+function idCondition() {
 	$("#id_input").keyup(function() {
 		const uid = $("#id_input").val();
 
@@ -24,7 +24,9 @@ $(document).ready(function() {
 			$("#id_text1").css("color", "black");
 		}
 	});
+};
 
+function pwCondition() {
 	$("#pw_input").keyup(function() {
 
 		var pw_val = $("#pw_input").val();
@@ -53,7 +55,9 @@ $(document).ready(function() {
 			$("#pw_chk2").css("color", "black");
 		}
 	});
+}
 
+function checkbox() {
 	$("#check_all").change(function() {
 		if ($("#check_all").is(":checked")) {
 			$checklist.prop("checked", true);
@@ -80,16 +84,18 @@ $(document).ready(function() {
 			$checkAll.prop("checked", false);
 		}
 	});
-	
+};
 
+function addressVisibility() {
 	$("#address").click(function() {
 		$("#sample6_postcode").css("display", "inline-block");
 		$("#sample6_address").css("display", "inline-block");
 		$("#sample6_detailAddress").css("display", "inline-block");
 
 	});
+};
 
-
+function pwConfirm() {
 	$("#pw_input").keyup(function() {
 		let pwVal1 = $("#pw_input").val();
 		let pwVal2 = $("#pw2_input").val();
@@ -112,6 +118,9 @@ $(document).ready(function() {
 		}
 	});
 
+};
+
+function idDupCheck() {
 	let $idCheckObj = $("#id_check");
 
 	$idCheckObj.click(function() {
@@ -137,14 +146,17 @@ $(document).ready(function() {
 				} else if (responseObj.status == 1) {
 					alert("사용가능한 이이디입니다.");
 					$("#id_text2").css("color", "green");
-					
+
 				}
 			},
 		});
 	});
-	
+
+};
+
+function emailDupCheck() {
 	let $emailCheckObj = $("#email_check");
-	
+
 	$emailCheckObj.click(function() {
 		let $emailObj = $("#email_input");
 
@@ -170,6 +182,50 @@ $(document).ready(function() {
 			},
 		});
 	});
-});
+};
+
+function submitConfirm() {
+	let $signupFormObj = $("#signup");
+
+	$signupFormObj.submit(function() {
+
+		let idVal = $("#id_input").val().trim();
+		let pwVal = $("#pw_input").val().trim();
+		let nameVal = $("#name_input").val().trim();
+		let emailVal = $("#email_input").val().trim();
+		let phonenumberVal = $("#phonenumber_input").val().trim();
+		let zonecodeVal = $("sample6_postcode").val().trim();
+		let addressVal = $("#sample6_address").val().trim();
+		let detailAddressVal = $("#sample6_detailAddress").val().trim();
+
+		alert(idVal + pwVal + nameVal);
+
+		if (idVal == "") {
+			alert("아이디를 입력하세요")
+			return false;
+		}
+		if (pwVal == "") {
+			alert("비밀번호를 입력하세요")
+			return false;
+		}
+		if (nameVal == "") {
+			alert("이름을 입력하세요")
+			return false;
+		}
+		if (emailVal == "") {
+			alert("이메일을 입력하세요")
+			return false;
+		}
+		if (phonenumberVal == "") {
+			alert("휴대폰번호를 입력하세요")
+			return false;
+		}
+		if (zonecodeVal == "" || addressVal == "" || detailAddressVal == "") {
+			alert("주소를 입력하세요");
+			return false;
+		};
+
+	});
+}
 
 
