@@ -64,7 +64,19 @@
 				}).open();
 	}
 </script>
-
+<script>
+	$(function() {
+		 testVisibility();
+		 idCondition();
+		 pwCondition();
+		 checkbox();
+		 addressVisibility();
+		 pwConfirm();
+		 idDupCheck();
+		 emailDupCheck();
+		 submitConfirm();
+	});
+</script>
 <meta charset="UTF-8">
 <title>홍켓컬리 :: 그냥 마트 가라</title>
 </head>
@@ -75,7 +87,7 @@
 	<div id="content">
 		<div class="page_article">
 			<div class="type_form_member_join"">
-				<form method="post" aciton="./signup" id="signup">
+				<form method="post" action="./signup" id="signup">
 					<p class="page_sub">
 						<span class="ico">*</span>필수입력사항
 					</p>
@@ -89,8 +101,8 @@
 									class="btn default" id="id_check" )>중복확인</a>
 									<p class="txt_guide square" id="id_text" style="display: none">
 										<span class="txt txt_case1 good" id="id_text1">6자 이상의
-											영문 혹은 영문과 숫자를 조합</span> <span class="txt txt_case2 bad" id="id_text2">아이디
-											중복확인</span>
+											영문 혹은 영문과 숫자를 조합</span> <span class="txt txt_case2 bad"
+											id="id_text2">아이디 중복확인</span>
 									</p></td>
 							</tr>
 							<tr>
@@ -117,7 +129,7 @@
 							<tr>
 								<th>이름<span class="ico">*<span class="screen_out">필수항목</span></span></th>
 								<td><input type="text" name="name" value="" label="이름"
-									placeholder="이름을 입력해주세요"></td>
+									placeholder="이름을 입력해주세요" id="name_input"></td>
 							</tr>
 							<tr>
 								<th>이메일<span class="ico">*<span class="screen_out">필수항목</span></span></th>
@@ -131,7 +143,7 @@
 								<td>
 									<div class="phone_num">
 										<input type="text" value="" pattern="[0-9]*" name="phone"
-											placeholder="숫자만 입력해주세요" class="inp">
+											placeholder="숫자만 입력해주세요" class="inp" id="phonenumber_input">
 									</div>
 
 									<p class="txt_guide">
