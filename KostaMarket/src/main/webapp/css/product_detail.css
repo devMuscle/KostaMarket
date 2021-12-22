@@ -111,7 +111,7 @@
 	top: 39px;
 	width: 278px;
 	height: 164px;
-   	background: url('../img/product/layer_share.png') no-repeat 0 0;
+   	background: url('../images/product/layer_share.png') no-repeat 0 0;
 }
 
 #shareLayer .list_share .btn img {
@@ -233,6 +233,11 @@
 	position: relative;
 }
 
+#body_product {
+	display: inline-block;
+	width: 100%;
+	max-width: 100%;
+}
 
 #body_product, #input_product, #select_product, #textarea_product,
 	#button_product { /*태그 수정 내용*/
@@ -286,7 +291,7 @@ content {
 	height: 90px;
 	border: 0;
 	background:
-		url(../img/product/ico_view_sns.jpg)
+		url(../images/product/ico_view_sns.jpg)
 		no-repeat 50% 50%;
 	font-size: 0;
 	text-indent: -9999px;
@@ -480,12 +485,11 @@ div, th, td, li, dt, dd, p {
 }
 
 #cartPut .cart_option .list .down.on {
-	background-image:
-		url(../img/product/ico_minus_on.jpg);
+	background-image:url(../images/product/ico_minus_on.jpg);
 }
 
 #cartPut .cart_option .list .down {
-	background: #fff url(../img/product/ico_minus_on.jpg)
+	background: #fff url(../images/product/ico_minus_on.jpg)
 		no-repeat 50% 50%;
 	background-size: 30px 30px;
 }
@@ -514,13 +518,13 @@ div, th, td, li, dt, dd, p {
 	text-align: center;
 } /*+버튼 바탕*/
 #cartPut .cart_option .list .up.on {
-	background-image: url(../img/product/ico_plus_on.jpg);
+	background-image: url(../images/product/ico_plus_on.jpg);
 }
 
 #cartPut .cart_option .list .up {
 	float: right;
 	margin-left: -1px;
-	background: #fff url(../img/product/ico_plus_on.jpg)
+	background: #fff url(../images/product/ico_plus_on.jpg)
 		no-repeat 50% 50%;
 	background-size: 30px 30px;
 } /*투명 바탕의 +버튼 구현*/
@@ -883,7 +887,7 @@ tbody {
 	height: 58px;
 	border: 0;
 	background:
-		url(../image/product/btn_pagetop_v2.jpg)
+		url(../images/product/btn_pagetop_v2.jpg)
 		no-repeat 50% 50%;
 	font-size: 0;
 	line-height: 0;
@@ -939,7 +943,7 @@ iframe#inreview {
     font-size: 0;
     line-height: 0;
     text-indent: -9999px;
-    background-image : url(../image/product/ico_minus_on.jpg);
+    background-image : url(../images/product/ico_minus_on.jpg);
 }
 
 #plusbtn {
@@ -950,7 +954,7 @@ iframe#inreview {
     font-size: 0;
     line-height: 0;
     text-indent: -9999px;
-    background-image : url(../image/product/ico_plus_on.jpg);
+    background-image : url(../images/product/ico_plus_on.jpg);
 }
 
 #result {

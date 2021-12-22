@@ -48,6 +48,7 @@ public class LoginServlet extends HttpServlet {
 				json.put("status", 1);
 				json.put("name", nameVal);
 				session.setAttribute("loginName", nameVal);
+				session.setAttribute("idInfo", idVal);
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

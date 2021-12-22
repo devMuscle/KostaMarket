@@ -10,7 +10,6 @@ public class CustomerService {
 		try {
 			customerRepository.add(customer);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
