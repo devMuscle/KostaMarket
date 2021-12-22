@@ -1,7 +1,9 @@
 package com.KostaMarket.Product.Controller;
 
 import java.io.IOException;
+import java.util.List;
 
+import com.KostaMarket.Product.DAO.ProductDAO;
 import com.KostaMarket.Product.Service.ProductService;
 import com.KostaMarket.Product.vo.Product;
 
@@ -17,28 +19,38 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet("/detailgoods")
 public class DetailGoodsServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;  //세션?
+	private static final long serialVersionUID = 1L; // 세션?
 	ProductService productService = new ProductService();
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		String productCode = request.getParameter("product_code");
 		Product result = null;
-		System.out.println("접속띠");
-		
+		List<Product> result2 = null;
+		int category = 0;
+		System.out.println("서블릿 접속띠");
+
+		ProductDAO dao = new ProductDAO();
+
 		try {
-			result = productService.retrieveProductInfo(productCode);
+			result = dao.retrieveProductInfo(productCode);
+
+			category = result.getProductCategory();
+			result2 = dao.relatedProduct(category);
+			// result = productService.retrieveProductInfo(productCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		request.setAttribute("product", result);
+		request.setAttribute("list", result2);
 		RequestDispatcher rd = request.getRequestDispatcher("DetailGoods.jsp");
-		
+
 		rd.forward(request, response);
-		
+
 	}
 
 }
