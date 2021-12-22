@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -78,22 +78,21 @@ img {
   vertical-align: middle;
 }
 
+div {
+  display: block;
+}
 body,
 input,
 select,
 textarea,
 button {
-  font-family: "Noto Sans KR", noto sans, malgun gothic, AppleGothic, dotum;
+  font-family: "Noto Sans KR", malgun gothic, AppleGothic, dotum;
   line-height: 1;
   letter-spacing: -0.05em;
   color: #4c4c4c;
   font-size: 12px;
   max-width: 100%;
 }
-div {
-  display: block;
-}
-
 h3 {
   display: block;
   font-size: 1.17em;
@@ -184,7 +183,7 @@ h3 {
   margin: 0px auto;
 }
 .css-3j1fi2 {
-  padding: 32px 0px 40px;
+  padding: 40px 0px 40px;
 }
 .css-2u0lrw {
   margin-bottom: 27px;
@@ -374,10 +373,6 @@ h3 {
 .css-1wv14ue {
   margin: 40px 0px;
 }
-.css-1i60c0e {
-  width: 1050px;
-  margin: 0px auto;
-}
 
 .css-4o4zgy {
   position: relative;
@@ -391,7 +386,157 @@ h3 {
   height: 100%;
   object-fit: cover;
 }
-.css-1i60c0e {
-  width: 1050px;
-  margin: 0px auto;
+
+.css-17gixes {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 80px 0px;
+}
+
+.dealsCount-1 .css-1vrkvt,
+.dealsCount-2 .css-1vrkvt {
+  width: 338px;
+}
+
+.css-1vrkvt h2 {
+  font-size: 28px;
+  color: rgb(51, 51, 51);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.26px;
+  margin-bottom: 10px;
+}
+
+.css-1vrkvt h3 {
+  font-size: 16px;
+  color: rgb(153, 153, 153);
+  font-weight: normal;
+  line-height: 1.3;
+  letter-spacing: normal;
+  margin-bottom: 24px;
+}
+
+.css-k4zwli {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 47px;
+  padding-top: 4px;
+}
+.css-icvsn4 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-right: 6px;
+  width: 36px;
+  height: 36px;
+}
+
+/*
+* 일일 특가 카운트 부분의 시간 부분
+*/
+#count {
+  width: 50px;
+}
+
+.css-13lh3pe {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(51, 51, 51);
+}
+
+.css-74rjlf {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.css-1a9j4kk {
+  flex-shrink: 0;
+  min-width: 38px;
+  line-height: 47px;
+  text-align: center;
+  white-space: nowrap;
+  color: rgb(51, 51, 51);
+}
+
+.css-74rjlf img {
+  width: 11px;
+}
+.css-1vrkvt p {
+  font-size: 14px;
+  color: rgb(204, 204, 204);
+  font-weight: normal;
+  line-height: 1.43;
+  letter-spacing: -0.4px;
+  margin-top: 32px;
+}
+
+.dealsCount-1 .css-lv1kje,
+.dealsCount-2 .css-lv1kje {
+  width: 694px;
+}
+
+.css-pirfdp {
+  display: flex;
+  margin: 0px -9px;
+}
+.css-zkaslx {
+  padding: 0px 9px;
+  width: 50%;
+}
+
+.css-13sxcdl {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.css-pirfdp {
+  display: flex;
+  margin: 0px -9px;
+}
+.css-zkaslx {
+  padding: 0px 9px;
+  width: 50%;
+}
+.css-1usngog {
+  position: relative;
+  z-index: 150;
+}
+.css-13sxcdl {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.css-4jombx {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.css-8msfms {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: flex-start;
+}
+.css-ks9z5y {
+  padding: 0px 8px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 32px;
+  opacity: 0.9;
+}
+.css-i2s33r {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  line-height: 1.43px;
+}
+.css-bjn8wh {
+  position: relative;
 }

@@ -29,10 +29,26 @@ function sum(type) {
 		
 	totalPrice = parseInt(price) * parseInt(number);
 	
-	sumResultElement.innerText = totalPrice;
-	
-	
+	sumResultElement.innerText = totalPrice; 	
+}
 
+function fresh(code) {
 	
-	 	
+	let codeValue = code;
+	if(codeValue == 'undefined'){
+		codeValue = 'all'; //전체보기
+	}
+	$.ajax({
+        url: "./category",
+        method: "get",
+        data: {productCode: codeValue},
+        success:function(data){
+			console.log("응답성공" + data);
+			$('div.list-goods ul.list').empty();
+			$('div.list-goods ul.list').html(data);
+        },error:function(){
+            alert("응답실패");
+        } 
+    });
+	return false;
 }

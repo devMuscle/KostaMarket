@@ -32,7 +32,7 @@ public class CartServlet extends HttpServlet {
 		
 		//session으로 로그인한 아이디 값 받아오기
 		HttpSession session = request.getSession();
-		String userid = (String)session.getAttribute("userid");
+		String userid = (String)session.getAttribute("loginName");
 		
 		CartDAO dao = new CartDAO(); //SQL문으로 조회할 CartDAO 객체를 생성
 		String path = "";
@@ -59,7 +59,7 @@ public class CartServlet extends HttpServlet {
 				Cart cart = (Cart)list.get(i);
 				String id = cart.getID();
 				System.out.println(id);
-				if(id.equals("id2")) {
+				if(id.equals("userid")) {
 					System.out.println("성공");
 					userCart.add(cart);
 				} else {
@@ -74,7 +74,7 @@ public class CartServlet extends HttpServlet {
 					Cart Ccart = (Cart)Clist.get(i);
 					String id = Ccart.getID();
 					//System.out.println(id);
-					if(id.equals("id2")) {
+					if(id.equals("userid")) {
 						userCart.add(Ccart);
 					}
 				}

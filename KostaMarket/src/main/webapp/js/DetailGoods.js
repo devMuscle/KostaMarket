@@ -1,3 +1,4 @@
+
 function count(type) {
 	// 결과를 표시할 element
 	const countResultElement = document.getElementById('result');
@@ -57,8 +58,6 @@ function addCartList(productCode) {
 
 
 }
-
-
 
 
 
