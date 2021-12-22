@@ -36,7 +36,7 @@ public class DeleteCartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//session으로 로그인한 아이디 값 받아오기
 		HttpSession session = request.getSession();
-		String userid = (String)session.getAttribute("userid");
+		String userid = (String)session.getAttribute("loginName");
 		
 		//cartlist.jsp에서 삭제할 상품 정보 + 아이디 받아오기
 		String[] useCart= request.getParameterValues("db");
@@ -63,7 +63,7 @@ public class DeleteCartServlet extends HttpServlet {
 		for(int i = 0; i < list.size(); i++) {
 			Cart cart = (Cart)list.get(i);
 			String id = cart.getID();
-			if(id.equals("id2")) {
+			if(id.equals("userid")) {
 				System.out.println(id);
 				userCart.add(cart);
 			} else {

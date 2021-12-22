@@ -69,14 +69,6 @@ ul {
   margin: 0px;
 }
 
-/* h3 {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-} */
-
 #inr-category .inner.lists {
   display: block;
 }
@@ -101,18 +93,7 @@ ul {
   color: #5f0080;
 }
 
-#inr-category li a {
-  overflow: hidden;
-  float: left;
-  max-width: 180px;
-  line-height: 20px;
-  font-size: 14px;
-  color: #333;
-  letter-spacing: -1px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  cursor: pointer;
-}
+
 
 .inner-lists a {
   text-decoration: none;
@@ -206,7 +187,7 @@ ul {
 
 #goods-list .list-goods .thumb .img {
   overflow: hidden;
-  position: absolute;
+  position: absolute; 
   left: 0;
   top: 0;
   width: 100%;

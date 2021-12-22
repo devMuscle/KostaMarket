@@ -20,7 +20,7 @@
 
 <%-- import product_detail.css --%>
 <link rel="stylesheet" type="text/css" href="./css/product_detail.css">
-<script type="text/javascript"><%@include file="./DetailGoods.js"%></script>
+<script type="text/javascript"><%@include file="./js/DetailGoods.js"%></script>
 
 <style>
 goods-add-product {

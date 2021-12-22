@@ -35,7 +35,7 @@ public class ModifyCartServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String userid = (String)session.getAttribute("userid");
+		String userid = (String)session.getAttribute("loginName");
 		
 		String idValue = request.getParameter("id");
 		String productCode = request.getParameter("productCode");
@@ -51,7 +51,7 @@ public class ModifyCartServlet extends HttpServlet {
 		for(int i = 0; i < list.size(); i++) {
 			Cart cart = (Cart)list.get(i);
 			String id = cart.getID();
-			if(id.equals("id2")) {
+			if(id.equals("userid")) {
 				System.out.println(id);
 				userCart.add(cart);
 			} else {
