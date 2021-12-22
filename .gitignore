@@ -1,7 +1,4 @@
 .metadata/
 Servers/
 *.log
-KostaMarket/.classpath
-KostaMarket/.project
 .classpath
-.project

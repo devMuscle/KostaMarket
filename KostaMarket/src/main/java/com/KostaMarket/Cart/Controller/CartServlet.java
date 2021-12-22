@@ -30,6 +30,7 @@ public class CartServlet extends HttpServlet {
 //		response.setContentType("text/html;charset=utf-8");
 //        PrintWriter out=response.getWriter();   
 		
+		//session으로 로그인한 아이디 값 받아오기
 		HttpSession session = request.getSession();
 		String userid = (String)session.getAttribute("userid");
 		
@@ -37,25 +38,28 @@ public class CartServlet extends HttpServlet {
 		String path = "";
 		        
 		List<Cart> list = dao.cartList(); //cartList() 메서드로 카드 정보를 조회
-		List<Cart> Clist = dao.customerlist();
-		List userCart = new ArrayList(); 
+		List<Cart> Clist = dao.customerlist(); //customerList() 메서드로 고객 정보를 조회
+		List userCart = new ArrayList(); //jsp에 전송할 list 생성
 		        
 //		        out.print("<html><body>");
 //		        out.print("<table  border=1><tr align='center' bgcolor='lightgreen'>");
 //		        out.print("<td>카트번호</td><td>수량</td><td>아이디</td><td>상품코드</td>");
 		
+		//카트에 상품이 있는지 1차 확인
 		if(list.isEmpty()) {
 			System.out.println("비었어요");
 		} else {
 			System.out.println("안 비었어요");
 		}
 		
+		//카트에 상품이 있는지 2차 확인
 		try {
+			//상품이 있으면 list에 고객+상품 정보 추가
 			for(int i = 0; i < list.size(); i++) {
 				Cart cart = (Cart)list.get(i);
 				String id = cart.getID();
 				System.out.println(id);
-				if(id.equals("id3")) {
+				if(id.equals("id2")) {
 					System.out.println("성공");
 					userCart.add(cart);
 				} else {
@@ -63,13 +67,14 @@ public class CartServlet extends HttpServlet {
 				}
 			}
 			
+			//상품이 없으면 list에 고객 정보 추가
 			if(userCart.isEmpty()) {
 				System.out.println("카트에 없어요. 고객 정보를 받아올게요.");
 				for(int i = 0; i <Clist.size(); i++) {
 					Cart Ccart = (Cart)Clist.get(i);
 					String id = Ccart.getID();
 					//System.out.println(id);
-					if(id.equals("id3")) {
+					if(id.equals("id2")) {
 						userCart.add(Ccart);
 					}
 				}

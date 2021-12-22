@@ -76,7 +76,7 @@ function chkPCode() {
 		}
 	}
 	arr.push(id);
-  	alert(arr);
+
 }
 
 //선택삭제데이터 보내기
@@ -106,7 +106,6 @@ function deleteSend() {
 		alert("선택한 상품이 없습니다.");
 	} else {
 		var select = confirm("선택한 상품을 삭제하시겠습니까?");
-		alert(arr);
 		if(select){
 			$.ajax({
 		        url: "./deletecart",
@@ -123,7 +122,9 @@ function deleteSend() {
 	}
 	
 	//jQuery 새로고침
-	location.reload();
+	setTimeout(function(){
+		location.reload();
+	},1000);
 }
 
 //개별삭제
@@ -141,7 +142,6 @@ function deleteOneSend(flagI) {
 	
 	//경고창 후 servlet에 정보 전달
 	var select = confirm("삭제하시겠습니까?");
-	alert(arr);
 	if(select){
 		$.ajax({
 	        url: "./deletecart",
@@ -157,7 +157,9 @@ function deleteOneSend(flagI) {
 	}
 	
 	//jQuery 새로고침
-	location.reload();
+	setTimeout(function(){
+		location.reload();
+	},1000);
 }
 
 //수량 변경
@@ -197,7 +199,9 @@ function modifyCount(type, flagI)  {
     resultElement.innerText = number;
 
 	//jQuery 새로고침
-	location.reload();
+	setTimeout(function(){
+		location.reload();
+	}, 1000);
   }
 
 //배송지 변경, 주문하기
