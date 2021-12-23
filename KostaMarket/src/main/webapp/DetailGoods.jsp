@@ -1,12 +1,15 @@
+<%--product.vo 임포트 --%>
+<!-- useBean setProperty는 언제쓰는거지? -->
 <%@page import="com.KostaMarket.Product.vo.Product"%>
+<%@page import="com.KostaMarket.Customer.vo.Customer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%-- util, txt 임포트 --%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.*"%>
-<%-- 검토 필요 --%>
-<jsp:useBean id="product" class="com.KostaMarket.Product.vo.Product" />
-<jsp:setProperty name="product" property="productCode" />
+
+<%-- html시작 --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +17,7 @@
 <title>마켓컬리 클론</title>
 
 <%-- import header.css --%>
-<link rel="stylesheet" type="text/css" href="./css/header.css" />
+<link rel="stylesheet" type="text/css" href="" />
 
 <%-- import footer.css --%>
 <link rel="stylesheet" type="text/css"
@@ -28,7 +31,7 @@
 	href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
 <%-- import javascript price count --%>
-<script type="text/javascript"><%@include file="./js/DetailGoods.js"%></script>
+<script type="text/javascript" src="./js/DetailGoods.js" charset="utf-8"%></script>
 
 <%-- import javascript slick slider --%>
 <script type="text/javascript"
@@ -36,8 +39,7 @@
 <script type="text/javascript"
 	src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-<%-- test --%>
-
+<%-- 페이지 내 부드럽게 이동 및 slick 스타일 재정의--%>
 <style>
 html {
 	scroll-behavior: smooth;
@@ -69,7 +71,7 @@ html {
 </style>
 </head>
 <body>
-
+	<%-- product vo 변수 선언 --%>
 	<%!String product_code;
 	String product_allergy;
 	String product_breeding_code;
@@ -85,14 +87,30 @@ html {
 	int product_price;
 	int product_sale_pct;
 	String product_weight;
-	int product_category;%>
-	<%-- 현재상품 정보 불러오기 --%>
+	int product_category;
+	int product_sale_price;
+	String product_sale_price2;
+	String contents_image1;
+	String contents_image2;
+	%>
+	<%-- 로그인 세션정보 불러오기 --%>
+	<%
+	//HttpSession customerObj = session.getAttribute("idInfo");
+	String customerId = (String)session.getAttribute("idInfo");
+	if(customerId==null){
+		System.out.println("비어있습니다." + customerId);
+	} else{
+		System.out.println("아이디"+customerId);
+	}
+	%>
+	<%-- 현재상품 정보 불러오기 Product 오브젝 형태--%>
 	<%
 	Product productObj = (Product) request.getAttribute("product");
-
+	
+	//session처럼 해도 되나?
 	product_code = productObj.getProductCode();
-	product_allergy = productObj.getProductAllergy();;
-	product_breeding_code = productObj.getProductBreedingCode();;
+	product_allergy = productObj.getProductAllergy();
+	product_breeding_code = productObj.getProductBreedingCode();
 	product_capacity = productObj.getProductCapacity();
 	product_country_origin = productObj.getProductCountryOrigin();
 	product_delivery = productObj.getProductDelivery();
@@ -107,17 +125,28 @@ html {
 	product_weight = productObj.getProductWeight();
 	product_category = productObj.getProductCategory();
 
+	product_sale_price = (product_price * (100-product_sale_pct)) / 100;
+	System.out.println(product_sale_price);
 	DecimalFormat df = new DecimalFormat("###,###");
 	String product_price2;
 	product_price2 = df.format(product_price);
+	product_sale_price2 = df.format(product_sale_price);
+	
+	contents_image1 = product_image.substring(1);
+	System.out.println(contents_image1);
+	contents_image2 = product_image.substring(1,24);
+	contents_image2 = contents_image2 + ".webp";
+	System.out.println(contents_image2);
 	%>
-	<%-- 연관상품 정보 불러오기 --%>
+
+	<%-- 연관상품 정보 불러오기 List 형태 --%>
 	<%
 	List<Product> list = (List) request.getAttribute("list");
 	%>
 
-	<%--<jsp:include page="../include/header.jsp" />--%>
+	<%-- 본격적인 HTML 바디의 시작 --%>
 	<div>
+		<%--상품 메인이미지 상품소개 정보 판매단위, 중량/용량 등 시작 --%>
 		<div id="body_product" style="height: auto;">
 			<br>
 			<div id="main">
@@ -126,61 +155,75 @@ html {
 
 						<div id="shareLayer">
 							<div class="layer_share">
+								<%--안보이는 공유 div 레이어 시작--%>
 								<div class="inner_layersns">
 									<h3 class="screen_out">SNS 공유하기</h3>
 									<ul class="list_share">
 										<li><a class="btn btn_fb" data-sns-name="페이스북"
-											data-sns="facebook" href="#none"><img
-												src="./images/product/ico_facebook.jpg" alt="페이스북"><span
-												class="txt">공유하기</span></a></li>
+											data-sns="facebook" href="#none"> <img
+												src="./images/product/ico_facebook.jpg" alt="페이스북"> <span
+												class="txt">공유하기</span>
+										</a></li>
 										<li><a class="btn btn_tw" data-sns-name="트위터"
-											data-sns="twitter" href="#none"><img
-												src="./images/product/ico_twitter.jpg" alt="트위터"><span
-												class="txt">트윗하기</span></a></li>
+											data-sns="twitter" href="#none"> <img
+												src="./images/product/ico_twitter.jpg" alt="트위터"> <span
+												class="txt">트윗하기</span>
+										</a></li>
 										<li class="btn_url"><input type="text" class="inp"
 											value="변경해야함" readonly="readonly"> <a
 											class="btn_copy off" data-sns-name="링크 복사" data-sns="copy"
-											href="#none">URL 복사<img
-												src="./img/product/ico_checked_x2.jpg" alt=""></a></li>
+											href="#none"> URL 복사 <img
+												src="./img/product/ico_checked_x2.jpg" alt="">
+										</a></li>
 									</ul>
 								</div>
+								<%--안보이는 공유 div 레이어 끝--%>
 							</div>
 
 						</div>
 
 						<div id="sectionView">
+							<%-- 상품소개 정보 판매단위, 중량/용량 등 시작 --%>
 							<div class="inner_view">
-
 								<div class="thumb">
-									<a
-										href="http://localhost:8888/KostaMarket/detailgoods?product_code=AC01">
-										<img src="<%=product_image%>" class="bg">
-									</a>
+									<img src="<%=product_image%>" class="bg">
 								</div>
-
+								<%--상품명--%>
 								<p class="goods_name">
-									<input id="p_num" type="hidden" name="p_num"
-										value="${param.p_num}" /> <input id="p_qty" type="hidden"
-										name="p_qty" value="${dto.getP_qty()}" /> <span
-										class="btn_share">
+									<span class="btn_share">
 										<button id="btnShare" onclick="onDisplay();">테스트용 텍스트</button>
 									</span> <strong class="name"><%=product_name%></strong> <span
-										class="short_desc">간단한 설명 ex:너무 좋아 멜론!</span>
+										class="short_desc"></span>
 								</p>
+
 								<p class="goods_price">
+									<%if(product_sale_pct>0){ %>
+									<%--할인된 금액  --%>
 									<span class="position"> <span class="dc"> <span
-											class="dc_price"> <span class="won" id="price"><%=product_price2%>원</span>
-
-												<span class="dc_percent"> <span class="per"><%=product_sale_pct%>%</span></span>
-
-										</span></span> <%--회원 할인가 end--%> <%-- 할인 전 금액 --%>
-									</span> <span class="not_login"> <span>로그인 후, 적립혜택이
+											class="dc_price"> <span class="won" id="price"><%=product_sale_price2%>원</span>
+												<span class="dc_percent"> <span class="per"> <%=product_sale_pct%>%
+												</span>
+											</span>
+										</span>
+									</span> <a class="original_price"> <span class="price"><%=product_price2%>원</span></span>
+									<%} 
+								else { %><%--할인 하지 않은 금액--%>
+									<span class="position"> <span class="dc"> <span
+											class="dc_price"> <span class="won" id="price">
+													<%=product_price2%>원
+											</span>
+										</span>
+									</span>
+									</span>
+									<%} %>
+									<%--로그인 여부 및 적립금 비교 구현필요 --%>
+									<span class="not_login"> <span>로그인 후, 적립혜택이
 											제공됩니다.</span>
 									</span>
-
-
 								</p>
-								<%-- --%>
+								<%-- 상품명 가격 적립금 p태그 끝 --%>
+
+								<%-- 상품정보 판매, 중량/용량 등 시작 --%>
 								<div class="goods_info">
 									<dl class="list fst">
 										<dt class="tit">판매단위</dt>
@@ -194,21 +237,14 @@ html {
 									</dl>
 									<dl class="list">
 										<dt class="tit">배송구분</dt>
-										<%-- --%>
 										<dd class="desc"><%=product_delivery%></dd>
 									</dl>
-									<%
-									if (product_country_origin != null) {
-									%>
+									<%if (product_country_origin != null) {%>
 									<dl class="list">
 										<dt class="tit">원산지</dt>
 										<dd class="desc"><%=product_country_origin%></dd>
 									</dl>
-									<%
-									} else {
-									}
-									%>
-
+									<%} else {}%>
 									<dl class="list">
 										<dt class="tit">포장타입</dt>
 										<dd class="desc">
@@ -217,92 +253,55 @@ html {
 												대체됩니다.</strong>
 										</dd>
 									</dl>
-
-									<%
-									if (product_country_origin != null) {
-									%>
+									<%if (product_country_origin != null) {%>
 									<dl class="list">
 										<dt class="tit">알레르기정보</dt>
 										<dd class="desc"><%=product_country_origin%></dd>
 									</dl>
-									<%
-									} else {
-									}
-									%>
+									<%} else{}%>
 
-									<%
-									if (product_expiration != null) {
-									%>
+									<%if (product_expiration != null) {%>
 									<dl class="list">
 										<dt class="tit">유통기한</dt>
 										<dd class="desc"><%=product_expiration%></dd>
 									</dl>
-									<%
-									} else {
-									}
-									%>
+									<%} else {}%>
 
-									<%
-									if (product_breeding_code != null) {
-									%>
+									<%if (product_breeding_code != null) {%>
 									<dl class="list">
 										<dt class="tit">사육환경번호</dt>
 										<dd class="desc"><%=product_breeding_code%></dd>
 									</dl>
-									<%
-									} else {
-									}
-									%>
+									<%} else {}%>
 
-									<%
-									if (product_livestock_history != null) {
-									%>
+									<%if (product_livestock_history != null) {%>
 									<dl class="list">
 										<dt class="tit">축산물이력정보</dt>
 										<dd class="desc"><%=product_livestock_history%></dd>
 									</dl>
-									<%
-									} else {
-									}
-									%>
+									<%} else {}%>
 
-									<%
-									if (product_instructions != null) {
-									%>
+									<%if (product_instructions != null) {%>
 									<dl class="list">
 										<dt class="tit">안내사항</dt>
 										<dd class="desc"><%=product_instructions%></dd>
 									</dl>
-									<%
-									} else {
-									}
-									%>
-
-									<%-- --%>
+									<%} else {}%>
 								</div>
-								<%-- --%>
+								<%--상품정보 판매, 중량/용량 등 끝--%>
 							</div>
-							<%-- --%>
 						</div>
 
-						<%--cart_put --%>
+						<%--장바구니 담기 시작 --%>
 						<div id="cartPut">
 							<div class="cart_option cartList cart_type2">
 								<div class="inner_option">
-									<!---->
-									<!---->
 									<div class="in_option">
 										<div class="list_goods">
-											<!---->
-											<!---->
-											<!---->
-											<ul id="ul_product" class="list list_nopackage">
-												<li class="on"><span class="btn_position">
-														<button id="button_product" type="button" class="btn_del">
-															<span class="txt">삭제하기</span>
-														</button>
-												</span> <span class="name"> <!----> [조공] 나 게살 좋아해 스틱 <!---->
-												</span> <span class="tit_item">구매수량</span>
+											<ul id="ul_product" class="list list_nopackage"
+												style="padding: 0px;">
+												<li class="on"><span class="btn_position"> </span> <span
+													class="tit_item">구매수량</span>
 													<div class="option">
 														<span class="count"> <input id="plusbtn"
 															type='button' onclick='count("plus"), sum("plus")' /> <input
@@ -310,7 +309,6 @@ html {
 															onclick='count("minus"), sum("minus")' /> <span
 															id='result'>1</span>
 														</span>
-														<!-- <span class="price"> <span class="dc_price">2,900원</span></span> -->
 													</div></li>
 											</ul>
 										</div>
@@ -322,25 +320,17 @@ html {
 													class="won">원</span>
 												</span>
 											</div>
-
-											<c:if test="${empty user_id }">
-												<p class="txt_point">
-													<span class="ico">적립</span> <span class="no_login">
-														<!----> <span>로그인 후, 적립혜택 제공</span>
-													</span>
-													<!---->
-												</p>
-											</c:if>
-
-											<c:if test="${!empty user_id }">
-												<p class="txt_point">
-													<span class="ico">적립</span> <span class="no_login">
-														<!----> <span>구매 시 ${dto.getP_point() }원 적립</span>
-													</span>
-													<!---->
-												</p>
-											</c:if>
-
+											<%--로그인 비교 구현 필요 --%>
+											<p class="txt_point">
+												<span class="ico">적립</span> <span class="no_login"> <span>로그인
+														후, 적립혜택 제공</span>
+												</span>
+											</p>
+											<p class="txt_point">
+												<span class="ico">적립</span> <span class="no_login"> <span>구매
+														시 원 적립</span>
+												</span>
+											</p>
 										</div>
 									</div>
 									<div class="group_btn off">
@@ -350,23 +340,15 @@ html {
 										</div>
 										<span class="btn_type1">
 											<button type="button" class="txt_type"
-												onclick='addCartList(<%=product_code%>,<%=product_price%>)'>
-												장바구니 담기</button> <!---->
+												onclick='addCartList("<%=product_code%>","<%=customerId%>")'>
+												장바구니 담기</button>
 										</span>
-										<!---->
-										<!---->
-										<!---->
-										<!---->
-										<!---->
-										<!---->
 									</div>
-									<!---->
 								</div>
 							</div>
+							<%--옵션정보 있을 경우 구현 필요 --%>
 							<div class="cart_option cartList cart_type1">
 								<div class="inner_option">
-									<!---->
-									<!---->
 									<div class="in_option">
 										<div class="list_goods">
 											<div class="bar_open">
@@ -374,11 +356,7 @@ html {
 													<span class="ico">상품 선택</span>
 												</button>
 											</div>
-											<!---->
-											<!---->
-											<!---->
 										</div>
-										<!---->
 									</div>
 									<div class="group_btn off">
 										<div class="view_function">
@@ -400,12 +378,6 @@ html {
 							<div class="cart_option cart_type3 notify_option">
 								<div class="inner_option">
 									<strong class="tit">재입고 알림 신청</strong>
-									<p class="name_deal">[조공] 나 게살 좋아해 스틱</p>
-									<!---->
-									<!---->
-									<p class="notice">
-										<span class="ico">·</span> 상품이 입고되면 앱 푸시 또는 알림톡으로 알려 드립니다.
-									</p>
 									<div class="group_btn layer_btn2">
 										<span class="btn_type2">
 											<button id="button_product" type="button" class="txt_type">취소</button>
@@ -415,6 +387,8 @@ html {
 									</div>
 								</div>
 							</div>
+
+
 							<div class="cart_option cart_result cart_type3">
 								<div class="inner_option">
 									<button id="button_product" type="button" class="btn_close1">pc레이어닫기</button>
@@ -472,14 +446,21 @@ html {
 						int productSalePct = p.getProductSalePct();
 						int productCategory = p.getProductCategory();
 						System.out.println(productName);
+						
+						DecimalFormat ddf = new DecimalFormat("###,###");
+						String productPrice2 = null;
+						productPrice2 = ddf.format(productPrice);
 				%>
 				<div style="border: 1px solid gray; margin: 0px 10px">
-					<img src="<%=productImage%>" width=180px height=230px>
+					<a
+						href="http://localhost:8888/KostaMarket/detailgoods?product_code=<%=productCode%>">
+						<img src="<%=productImage%>" width=180px height=230px>
+					</a>
 					<div style="padding: 10px; position: relative; min-height: 75px;">
 						<p
-							style="overflow: hidden; width: 100%; height: 35px; word-wrpa: break-word; font-size: 13px; font-weight: 700; color: #4c4c4c; line-height: 18px;"><%=productName%></p>
+							style="overflow: hidden; margin-top: 0px; margin-bottom: 30px; top: 10px; width: 100%; height: 35px; font-size: 13px; font-weight: 700; color: #4c4c4c; line-height: 18px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;"><%=productName%></p>
 						<p
-							style="font-size: 14px; position: absolute; left: 10px; bottom: 10px;"><%=productPrice%>원
+							style="font-size: 13px; position: absolute; left: 10px; bottom: 10px;"><%=productPrice2%>원
 						</p>
 					</div>
 				</div>
@@ -549,14 +530,14 @@ html {
 
 			<%-- 상품설명 이미지  --%>
 			<div id="content1">
-				<img src="<%=product_image%>"
+				<img src="./images<%=contents_image1%>"
 					style="align: center; width: 1010px; height: 100%;">
 			</div>
 			<%-- #content1 scroll end --%>
 
 			<%-- 상세정보 이미지  --%>
 			<div id="content2">
-				<img src="<%=product_image%>"
+				<img src="./images<%=contents_image2%>"
 					style="align: center; width: 1010px; height: 100%;">
 
 			</div>
