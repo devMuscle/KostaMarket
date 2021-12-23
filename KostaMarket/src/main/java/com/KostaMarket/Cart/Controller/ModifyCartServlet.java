@@ -51,7 +51,7 @@ public class ModifyCartServlet extends HttpServlet {
 		for(int i = 0; i < list.size(); i++) {
 			Cart cart = (Cart)list.get(i);
 			String id = cart.getID();
-			if(id.equals("userid")) {
+			if(id.equals(userid)) {
 				System.out.println(id);
 				userCart.add(cart);
 			} else {

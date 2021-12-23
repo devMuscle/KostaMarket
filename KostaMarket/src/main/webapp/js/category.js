@@ -36,10 +36,6 @@ function fresh(code) {
 	
 	let codeValue = code;
 	
-	if(codeValue.length == 1){
-		alert("카테고리 테스트");
-		codeValue = 'all'; //전체보기
-	}
 	$.ajax({
         url: "./category",
         method: "get",

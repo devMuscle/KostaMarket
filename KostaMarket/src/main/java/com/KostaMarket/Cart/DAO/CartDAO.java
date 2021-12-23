@@ -70,6 +70,8 @@ public class CartDAO {
 	                cart.setZoneCode(zoneCode);
 	            
 	                list.add(cart); //설정된 Cart객체를 다시 ArrayList에 저장
+	                
+	                System.out.print(productCode);
 	            }
 	            
 	            MyConnection.close(rs, pstmt, con);
