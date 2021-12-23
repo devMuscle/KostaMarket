@@ -32,7 +32,7 @@ public class CartServlet extends HttpServlet {
 		
 		//session으로 로그인한 아이디 값 받아오기
 		HttpSession session = request.getSession();
-		String userid = (String)session.getAttribute("loginName");
+		String userid = (String)session.getAttribute("idInfo");
 		
 		CartDAO dao = new CartDAO(); //SQL문으로 조회할 CartDAO 객체를 생성
 		String path = "";

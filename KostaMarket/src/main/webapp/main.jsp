@@ -167,6 +167,7 @@
 						
 						System.out.println("main product image");
 						System.out.println(productImage);
+						if(productSalePct > 0) {
 				%>
 
                           <!-- 1 슬라이드 시작-->
@@ -215,10 +216,9 @@
                                     </h3>
                                     <div class="Price css-1j97sho esl0mq04">
                                       <div class="css-1o7d3sk esl0mq02">
-                                        <div class="css-1tt7nog esl0mq03">
-                                          <%=productSalePct %>%
+                                        <div class="css-1tt7nog esl0mq03">                              <%=productSalePct %>%
                                         </div>
-                                        <div class="css-10edag5 esl0mq01">
+                                      <div class="css-10edag5 esl0mq01">
                                           <%=( productPrice * (100- productSalePct))/100 %><span>원</span>
                                         </div>
                                       </div>
@@ -232,7 +232,66 @@
                               </div>
                             </div>
                           </div>
-<%}}catch(NullPointerException e) {}%>
+<%} else { %>
+	<!-- 1 슬라이드 시작-->
+                        
+                          <div>
+                            <div
+                              class="
+                                SliderItem
+                                currentSlide
+                                css-109sxf0
+                                e1ys67gq3
+                              "
+                            >
+                              <div class="css-0 ee57w0b0">
+                                <div class="css-0 e97c0gb0">
+                                  <!-- Thumnail 시작 -->
+                                  <div class="Thumbnail css-1usngog erwlrj82">
+                                    <a href="http://localhost:8888/KostaMarket/detailgoods?product_code=<%=productCode%>" class="css-13sxcdl erwlrj81">
+                                      <img
+                                        class="erwlrj80 css-4jombx ebkj6fl0"
+                                        src="<%=productImage%>"
+                                        alt="<%=productName%>"/>
+                                    </a>
+                                      <div clcss-8msfms e14imjkq0></div>
+                                    
+                                    <div class="css-1a83kvf em4wzeq1">
+                                      <img
+                                        class="css-1m1ntoc em4wzeq0"
+                                        src="images/main/buttonIMG/cart_white_45_45.svg"
+                                        alt="상품 카트에 담기 아이콘"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- Thumnail end -->
+                                  <!-- 상품 설명  Description  Start-->
+                                  <div
+                                    class="Description css-13fhmnl e1cjxdu03"
+                                  >
+                                    <p class="css-6449wc e1cjxdu02">
+                                     <%=productName%>
+                                    </p>
+                                    <h3>
+                                      <a href="#" class="css-fruqcr e1cjxdu01"
+                                        ><%=productName%></a
+                                      >
+                                    </h3>
+                                    <div class="Price css-1j97sho esl0mq04">
+                                      <div class="css-1o7d3sk esl0mq02">
+                                        <div class="css-10edag5 esl0mq01">
+                                          <%= productPrice %><span>원</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- 상품 설명  Description  End-->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+	
+	<%} } }catch(NullPointerException e) {}%>
                           
                         </div>
                       </div>

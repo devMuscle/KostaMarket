@@ -386,7 +386,7 @@ content {
 
 #sectionView .goods_info .list {
 	overflow: hidden;
-	padding: 18px 0;
+	padding: 6px 0;
 	border-bottom: 1px solid #f4f4f4; /*회색 테이블 라인 그리기*/
 }
 
@@ -416,6 +416,7 @@ div, th, td, li, dt, dd, p {
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
+	margin-top: 25px;
 }
 
 /*cartout 주문 가격 변동*/

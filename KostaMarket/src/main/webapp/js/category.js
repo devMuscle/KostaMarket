@@ -35,7 +35,9 @@ function sum(type) {
 function fresh(code) {
 	
 	let codeValue = code;
-	if(codeValue == 'undefined'){
+	
+	if(codeValue.length == 1){
+		alert("카테고리 테스트");
 		codeValue = 'all'; //전체보기
 	}
 	$.ajax({

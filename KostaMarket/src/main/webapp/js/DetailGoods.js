@@ -1,12 +1,12 @@
 
 function count(type) {
-	// 결과를 표시할 element
+	// 寃곌낵瑜� ������ element
 	const countResultElement = document.getElementById('result');
 
-	// 현재 화면에 표시된 값
+	// ���� ��硫댁�� ������ 媛�
 	let number = countResultElement.innerText;
 
-	// 더하기/빼기
+	// ����湲�/鍮쇨린
 	if (type === 'plus') {
 		number = parseInt(number) + 1;
 	} else if (type === 'minus') {
@@ -15,7 +15,7 @@ function count(type) {
 		}
 	}
 
-	// 결과 출력
+	// 寃곌낵 異���
 	countResultElement.innerText = number;
 }
 
@@ -38,24 +38,32 @@ function onDisplay() {
 
 	$('#shareLayer').toggle();
 
-} // 공유하기 버튼 클릭시 보이고 안보이고
+} // 怨듭����湲� 踰��� �대┃�� 蹂댁�닿� ��蹂댁�닿�
 
-function addCartList(productCode) {
+function addCartList(productCode,customerId) {
 	const countResultElement = document.getElementById('result');
-
+	
+	let id = customerId;
+	let Code = productCode;
 	let number = countResultElement.innerText;
-
-	$.ajax({
-		url: "./addCartList",
-		method: "Get",
-		data: { id: "id1", productCode: "p01", productCount: number },
-		success: function(data) {
-
-		}, error: function() {
-			alert("failed");
-		}
-	});
-
+	
+	alert(id);			//if==null 은 어쨰서 동작하지 않지?
+	if(id=='null'){			
+		alert("로그인 후 이용 할수 있습니다.");
+		location.reload()
+	} else{
+		$.ajax({
+			url: "addCartList",
+			method: "Get",
+			data: { id: id, productCode: Code, productCount: number },
+			success: function(data) {
+				alert("요청하신 상품 "+ number + "개가 장바구니에 추가되었습니다.");
+			}, error: function() {
+				alert("failed");
+			}
+		});
+		
+	}
 
 }
 

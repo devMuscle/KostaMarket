@@ -35,7 +35,7 @@ public class ModifyCartServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String userid = (String)session.getAttribute("loginName");
+		String userid = (String)session.getAttribute("idInfo");
 		
 		String idValue = request.getParameter("id");
 		String productCode = request.getParameter("productCode");
