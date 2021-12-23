@@ -21,7 +21,7 @@ function idCondition() {
 
 			return false;
 		} else {
-			$("#id_text1").css("color", "black");
+			$("#id_text1").css("color", "green");
 		}
 	});
 };
@@ -46,13 +46,13 @@ function pwCondition() {
 		if (pw_val.length < 10) {
 			$("#pw_chk1").css("color", "red");
 		} else {
-			$("#pw_chk1").css("color", "black");
+			$("#pw_chk1").css("color", "green");
 		}
 
 		if (pw_val.match(pattern) || count >= 2) {
 			$("#pw_chk2").css("color", "red");
 		} else {
-			$("#pw_chk2").css("color", "black");
+			$("#pw_chk2").css("color", "green");
 		}
 	});
 }
@@ -114,44 +114,46 @@ function pwConfirm() {
 		if (pwVal1 != pwVal2) {
 			$("#pw2_txt").css("color", "red");
 		} else {
-			$("#pw2_txt").css("color", "black");
+			$("#pw2_txt").css("color", "green");
 		}
 	});
 
 };
 
 function idDupCheck() {
-	let $idCheckObj = $("#id_check");
+	let color = $("#id_text1").css("color");
+	
+	if (color == "rgb(255, 0, 0)") {
+		alert("아이디는 6자 이상의 영문 혹은 영문과 숫자 조합만 가능합니다");
+		$("#id_input").focus();
+		return false;
+	}
 
-	$idCheckObj.click(function() {
+	let $idObj = $("#id_input");
 
-		let $idObj = $("#id_input");
+	if ($idObj.val().trim() == "") {
+		alert("아이디를 입력하세요");
+		$idObj.focus();
+		return false;
+	}
 
-		if ($idObj.val().trim() == "") {
-			alert("아이디를 입력하세요");
-			$idObj.focus();
-			return false;
-		}
+	let ajaxUrl = "./idcheck";
+	let ajaxMethod = "get";
+	let idValue = $idObj.val().trim();
+	$.ajax({
+		url: ajaxUrl,
+		method: ajaxMethod,
+		data: { id: idValue },
+		success: function(responseObj) {
+			if (responseObj.status == 0) {
+				alert("이미 사용중인 아이디입니다.");
+			} else if (responseObj.status == 1) {
+				alert("사용가능한 이이디입니다.");
+				$("#id_text2").css("color", "green");
 
-		let ajaxUrl = "./idcheck";
-		let ajaxMethod = "get";
-		let idValue = $idObj.val().trim();
-		$.ajax({
-			url: ajaxUrl,
-			method: ajaxMethod,
-			data: { id: idValue },
-			success: function(responseObj) {
-				if (responseObj.status == 0) {
-					alert("이미 사용중인 아이디입니다.");
-				} else if (responseObj.status == 1) {
-					alert("사용가능한 이이디입니다.");
-					$("#id_text2").css("color", "green");
-
-				}
-			},
-		});
+			}
+		},
 	});
-
 };
 
 function emailDupCheck() {
@@ -184,48 +186,110 @@ function emailDupCheck() {
 	});
 };
 
+//전송 전 체크사항들 
 function submitConfirm() {
-	let $signupFormObj = $("#signup");
+	
+	//입력란 공백 있는지 확인 start
+	let idVal = $("#id_input").val();
+	let pwVal = $("#pw_input").val();
+	let pwCheckVal = $("#pw2_input").val();
+	let nameVal = $("#name_input").val();
+	let emailVal = $("#email_input").val();
+	let phonenumberVal = $("#phonenumber_input").val();
+	let zonecodeVal = $("sample6_postcode").val();
+	let addressVal = $("#sample6_address").val();
 
-	$signupFormObj.submit(function() {
+	if (idVal == "") {
+		alert("아이디를 입력하세요")
+		$("#id_input").focus();
+		return false;
+	}
+	if (pwVal == "") {
+		alert("비밀번호를 입력하세요")
+		$("#pw_input").focus();
+		return false;
+	}
+	
+	if (pwCheckVal == "") {
+		alert("비밀번호를 한번더 입력하세요")
+		$("#pw2_input").focus();
+		return false;
+	}
+	
+	if (nameVal == "") {
+		alert("이름을 입력하세요")
+		$("#name_input").focus();
+		return false;
+	}
+	if (emailVal == "") {
+		alert("이메일을 입력하세요")
+		$("#email_input").focus();
+		return false;
+	}
+	if (phonenumberVal == "") {
+		alert("휴대폰번호를 입력하세요")
+		$("#phonenumber_input").focus();
+		return false;
+	}
+	if (zonecodeVal == "") {
+		alert("주소를 입력하세요");
+		$("sample6_postcode").focus();
+		return false;
+	}
+	
+	if(addressVal == ""){
+		alert("주소를 입력하세요");
+		$("#sample6_address").focus();
+		return false;
+	}
+	//입력란 공백 있는지 확인 end
+	
+	//아이디 조건, 중복체크 했는지 확인 start
+	let idColor = $("#id_text1").css("color");
+	let idCheckColor = $("#id_text2").css("color");
+	
+	
+	if (idColor == "rgb(255, 0, 0)") {
+		alert("아이디는 6자 이상의 영문 혹은 영문과 숫자 조합만 가능합니다");
+		$("#id_input").focus();
+		return false;
+	}
 
-		let idVal = $("#id_input").val().trim();
-		let pwVal = $("#pw_input").val().trim();
-		let nameVal = $("#name_input").val().trim();
-		let emailVal = $("#email_input").val().trim();
-		let phonenumberVal = $("#phonenumber_input").val().trim();
-		let zonecodeVal = $("sample6_postcode").val().trim();
-		let addressVal = $("#sample6_address").val().trim();
-		let detailAddressVal = $("#sample6_detailAddress").val().trim();
+	if (idCheckColor != "rgb(0, 128, 0)") {
+		alert("아이디 중복확인을 해 주세요");
+		$("#id_input").focus();
+		return false;
+	}
+	//아이디 조건, 중복체크 했는지 확인 end
 
-		alert(idVal + pwVal + nameVal);
+	//비밀번호 조건 확인 start
+	let pwColor = $("#pw_chk1").css("color");
+	let pwColor2 = $("#pw_chk2").css("color");
+	
+	if (pwColor != "rgb(0, 128, 0)") {
+		alert("비밀번호를 입력하세요");
+		$("#pw_input").focus();
+		return false;
+	}
+	
+	if (pwColor2 != "rgb(0, 128, 0)") {
+		alert("비밀번호를 입력하세요");
+		$("#pw_input").focus();
+		return false;
+	}
+	//비밀번호 조건 확인 end
 
-		if (idVal == "") {
-			alert("아이디를 입력하세요")
-			return false;
-		}
-		if (pwVal == "") {
-			alert("비밀번호를 입력하세요")
-			return false;
-		}
-		if (nameVal == "") {
-			alert("이름을 입력하세요")
-			return false;
-		}
-		if (emailVal == "") {
-			alert("이메일을 입력하세요")
-			return false;
-		}
-		if (phonenumberVal == "") {
-			alert("휴대폰번호를 입력하세요")
-			return false;
-		}
-		if (zonecodeVal == "" || addressVal == "" || detailAddressVal == "") {
-			alert("주소를 입력하세요");
-			return false;
-		};
+	//비밀번호 확인란 확인 start
+	let pw2Color = $("#pw2_txt").css("color");
+	
+	if (pw2Color != "rgb(0, 128, 0)") {
+		alert("비밀번호를 입력하세요");
+		$("#pw2_input").focus();
+		return false;
+	}	
+	//비밀번호 확인란 확인 end
 
-	});
+	return true;
 }
 
 

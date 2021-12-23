@@ -72,9 +72,7 @@
 		 checkbox();
 		 addressVisibility();
 		 pwConfirm();
-		 idDupCheck();
 		 emailDupCheck();
-		 submitConfirm();
 	});
 </script>
 <meta charset="UTF-8">
@@ -87,7 +85,7 @@
 	<div id="content">
 		<div class="page_article">
 			<div class="type_form_member_join"">
-				<form method="post" action="./signup" id="signup">
+				<form method="post" action="./signup" id="signup" onsubmit="return submitConfirm()">
 					<p class="page_sub">
 						<span class="ico">*</span>필수입력사항
 					</p>
@@ -98,7 +96,7 @@
 								<td><input type="text" name="id" id="id_input" value=""
 									maxlength="16" label="아이디"
 									placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"> <a
-									class="btn default" id="id_check" )>중복확인</a>
+									class="btn default" id="id_check" onclick="idDupCheck()")>중복확인</a>
 									<p class="txt_guide square" id="id_text" style="display: none">
 										<span class="txt txt_case1 good" id="id_text1">6자 이상의
 											영문 혹은 영문과 숫자를 조합</span> <span class="txt txt_case2 bad"
@@ -216,8 +214,8 @@
 									</div>
 									<div class="check_view">
 										<label class="check_agree label_block"> <input
-											type="checkbox" value="" name="check" label="이용약관"
-											id="check_1"> <span class="ico"></span>이용약관 동의 <span
+											type="checkbox" value="" name="check"
+											id="check_1"> <span class="ico" required></span>이용약관 동의 <span
 											class="sub">(필수)</span>
 										</label><a href="#none" class="link btn_link btn_agreement">약관보기>
 										</a>
@@ -235,7 +233,7 @@
 									<div class="check_view">
 										<label class="check_agree label_block"> <input
 											type="checkbox" id="check_2" name="check" value=""
-											label="개인정보 수집·이용"> <span class="ico"></span>개인정보
+											label="개인정보 수집·이용" required> <span class="ico"></span>개인정보
 											수집·이용 동의 <span class="sub">(필수)</span>
 										</label> <a href="#none" class="link btn_link btn_essential">약관보기>
 										</a>
@@ -269,7 +267,7 @@
 									<div class="check_view">
 										<label class=" check_agree label_block"> <input
 											type="checkbox" value="n" name="check" label="만 14세 이상"
-											id="check_7"> <span class="ico" id="check_6"></span>본인은
+											id="check_7" required> <span class="ico" id="check_6"></span>본인은
 											만 14세 이상입니다. <span class="sub">(필수)</span>
 										</label>
 									</div>
