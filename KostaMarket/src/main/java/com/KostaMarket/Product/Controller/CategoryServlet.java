@@ -26,11 +26,17 @@ public class CategoryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String productCode = request.getParameter("productCode");
 		
+
+		String splitProductCode = productCode.substring(0,1);
+		System.out.println(splitProductCode);						//한글자 짜르기
+
 		CategoryDAO dao = new CategoryDAO(); 
 		String path = "";
 		List<Product> list;
-		if(productCode == null || productCode.equals("") || productCode.equals("all")) {
-			list = dao.categoryList(); 
+		System.out.println("test용: "+ productCode.length());					//테스트용
+		//if(productCode == null || productCode.equals("") || productCode.equals("all")) {
+		if(productCode.length()==1) {
+			list = dao.categoryList(productCode); 
 		}else {
 			list = dao.detailCategoryList(productCode); 			
 		}		
