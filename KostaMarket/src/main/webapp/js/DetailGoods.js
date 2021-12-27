@@ -47,7 +47,7 @@ function addCartList(productCode,customerId) {
 	let Code = productCode;
 	let number = countResultElement.innerText;
 	
-	alert(id);			//if==null 은 어쨰서 동작하지 않지?
+	//alert(id); //if==null 은 어쨰서 동작하지 않지?
 	if(id=='null'){			
 		alert("로그인 후 이용 할수 있습니다.");
 		location.reload()

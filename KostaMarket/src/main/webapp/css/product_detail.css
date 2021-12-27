@@ -776,7 +776,7 @@ div, th, td, li, dt, dd, p {
 	margin: 0 auto;
 	/*탭 고정 코드*/
 	position: sticky;
-	top: 42px; /*높이 지정*/
+	top: 40px; /*높이 지정*/
 	/*탭 고정 코드*/
 	z-index: 1; /*QnA보다 위에 나오게 탭 고정*/
 }

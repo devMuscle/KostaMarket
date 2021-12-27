@@ -18,6 +18,7 @@
 	<%
 	//HttpSession customerObj = session.getAttribute("idInfo");
 	String customerId = (String)session.getAttribute("idInfo");
+	String customerName = (String)session.getAttribute("loginName");
 	%>
     <div id="header">
       <div class="bnr_header" id="top_message">
@@ -52,7 +53,7 @@
 	         <ul class="list_menu">
 	            <li class="menu none_sub menu_join">
 	              <span class="txt">
-		              <span class="link_menu"><%=customerId %>님</span>
+		              <span class="link_menu"><%=customerName %>님</span>
 	              </span>
 	            <li class="menu 1st">
 	              <a href="로그아웃.jsp 넣어야함" class="link_menu">로그아웃</a>
@@ -254,7 +255,7 @@
           </ul>
 
   		  <div class="location_search">
-            <input class="search" />
+            <input class= "search" />
             <input
               type="image"
               class="search_icon"
@@ -266,9 +267,15 @@
             </a>
           </div>
           <div class="location_set">
-	          <a href="cartlist.jsp">
+          	  <%if(customerId == null) {%>
+          	  	<a href="http://localhost:8888/KostaMarket/login" onclick = alert("로그인해주세요")>
+	            	<img src="./images/icon/main/ico_cart.svg" class="cart_btn" />
+	         	</a>
+          	  <%} else { %>
+	          <a href="http://localhost:8888/KostaMarket/cart">
 	            <img src="./images/icon/main/ico_cart.svg" class="cart_btn" />
 	          </a>
+	          <%} %>
            </div>
         </div>		
         
