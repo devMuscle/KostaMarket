@@ -11,20 +11,31 @@ List<Cart> list = (List)request.getAttribute("list");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src = "./js/cartlist.js"></script>
 <link href = "./css/cartlist.css" rel = "stylesheet">
-<link href = "./css/footer1.css" rel = "stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
 <meta charset="UTF-8">
-<title>Help Me!!</title>
+<title>코스타 마켓 :: 내일의 장보기, 코스타 마켓</title>
 <script>
     $(function(){
       $("#includedContent").load("footer.html");
     });
+    $(function(){
+  	  $("#includedHeader").load("header.jsp");
+    });
 </script>
 </head>
+	<header>
+		<div id="includedHeader"></div>
+	</header>
     <body>
+    	<%if(list.isEmpty()) { %>
+    		<script>
+    			alert("로그인해주세요");
+    			window.location.href = "http://localhost:8888/KostaMarket/login";
+    		</script>
+    	<% } else {%>
         <div id = "titleName">
             <h2>장바구니</h2>
         </div>       
@@ -89,7 +100,7 @@ List<Cart> list = (List)request.getAttribute("list");
 										        <tr id = "tline">
 										        	<td class = "chkdetail"><input type="checkbox" id = "code<%=flagI%>" class = "chkbox" name='chkbox' value = "<%=productCode%>" checked = "" onclick = "checkDetailAll(); getCheckedCnt();"><label for = "code<%=flagI%>" class = "trash">-</label></td>
 										          	<td class = "tdImg"><a href = "./detailgoods?product_code=<%=productCode%>"><img src = "<%=productImage%>"></a></td>
-										          	<td class = "tdName" id = "name<%=flagI%>"><a href = "./detailgoods?product_code=<%=productCode%>"><%=productName%>(<%=productPacking%>상품)</a></td>											    
+										          	<td class = "tdName" id = "name<%=flagI%>"><a href = "./detailgoods?product_code=<%=productCode%>"><%=productName%></a></td>											    
 										          	<td class = "tdCount">
 										          		<div class = "numBlock">
 												            <input type='button' class = "num" onclick='modifyCount("minus", <%=flagI%>)' value='-'/>
@@ -175,6 +186,7 @@ List<Cart> list = (List)request.getAttribute("list");
                     </div>
                 </div>
            </div>
+           <%} %>
     </body>
     <footer>
     	<div id="includedContent"></div>

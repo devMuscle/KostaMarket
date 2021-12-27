@@ -25,8 +25,12 @@
     $(function(){
         $("#includedContent").load("footer.html");
       });
-    </script>
-
+    //해더 추가하는 자바스크립트
+      $(function(){
+    	  $("#includedHeader").load("header.jsp");
+      });
+	</script>
+	<div id="includedHeader" style="box-shadow: 0px 2px #eee;"></div>
   </head>
   <body>
   

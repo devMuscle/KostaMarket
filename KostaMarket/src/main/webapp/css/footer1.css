@@ -8,8 +8,11 @@
 }
 
 #bigBlock {
-    width: 1510px;
+	position: relative;
+	width: 1500px;
     border-top: 1px solid rgb(210, 210, 210);
+    margin-left: auto;
+    margin-right: auto;	
 }
 
 #avgBlock {
@@ -24,6 +27,7 @@
 #smallBlock1 {
     display: block;
     width: 50%;
+    padding-top: 29px;
     padding-bottom: 20px;
     border-right-color: black;
     float: left;
@@ -33,7 +37,6 @@
     display: inline-block;
     font-size: 20px;
     margin: 0px;
-    padding-top: 29px;
     color: #333;
     font-weight: 800;
     width: 50%;
@@ -41,7 +44,7 @@
 
 .leftTable {
     display: inline-block;
-    padding-top: 14px;
+    padding-top: 20px;
     margin: 0px;
 }
 

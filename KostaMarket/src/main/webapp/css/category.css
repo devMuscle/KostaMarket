@@ -166,8 +166,8 @@ ul {
 
 #goods-list .list-goods li {
   float: left;
-  width: 338px;
-  height: 657px;
+  width: 356px;
+  height: 682px;
   padding: 25px 18px 0 0;
 }
 
@@ -187,7 +187,7 @@ ul {
 
 #goods-list .list-goods .thumb .img {
   overflow: hidden;
-  position: absolute; 
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
@@ -198,6 +198,7 @@ ul {
   width: 100%;
   vertical-align: top;
 }
+
 
 #goods-list .list-goods .thumb .group-btn {
   position: absolute;
