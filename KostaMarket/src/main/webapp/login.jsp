@@ -10,10 +10,14 @@
 <script>
 	$(function() {
 		loginClick();
+		$("#includedContent").load("footer.html");
+		$("#includedHeader").load("header.jsp");
 	});
 </script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+<title>마켓컬리 :: 내일의 장보기, 마켓컬리</title>
+<div id="includedHeader"></div>
 </head>
 <body>
 	<div id="main">
@@ -31,8 +35,8 @@
 								placeholder="비밀번호를 입력해주세요">
 							<div class="checkbox_save">
 								<div class="login_search">
-									<a class="link" href="#none"> 아이디 찾기 </a> <span class="bar"></span>
-									<a class="link" href="#none"> 비밀번호 찾기 </a>
+									<a class="link" href="#none"></a>
+									<a class="link" href="#none"></a>
 								</div>
 							</div>
 							<button class="btn_type1" type="submit" id="login_butotn">
@@ -48,4 +52,7 @@
 		</div>
 	</div>
 </body>
+<footer>
+	<div id="includedContent"></div>
+</footer>
 </html>

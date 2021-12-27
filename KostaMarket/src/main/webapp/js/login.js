@@ -27,7 +27,6 @@ function loginClick() {
 					alert("아이디 또는 비밀번호 정보가 잘못되었습니다");
 				} else if (responseObj.status == 1) {
 					//로그인성공
-					alert(responseObj.name + "님 환영합니다");
 					localStorage.setItem("savedid", idValue);
 					localStorage.setItem("savedpw", pwdValue);
 					location.href = "./main.html";
