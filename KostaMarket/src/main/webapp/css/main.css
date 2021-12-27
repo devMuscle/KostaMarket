@@ -1,0 +1,542 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+li {
+  list-style: none;
+}
+img {
+  vertical-align: middle;
+}
+
+div {
+  display: block;
+}
+body,
+input,
+select,
+textarea,
+button {
+  font-family: "Noto Sans KR", malgun gothic, AppleGothic, dotum;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: #4c4c4c;
+  font-size: 12px;
+  max-width: 100%;
+}
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+#main {
+  border-bottom: 1px solid #f7f7f7;
+  margin: 0 auto;
+}
+
+#Kosta_main {
+  position: relative;
+  z-index: 0;
+  overflow-x: hidden;
+}
+.css-l4pnbr {
+  position: relative;
+  z-index: 1;
+  min-width: 1050px;
+  letter-spacing: normal;
+}
+
+/*
+ * Main banner 부분 
+*/
+.slick-list {
+  position: relative;
+  max-width: 1900px;
+  margin: 0px auto;
+}
+.slick-track {
+  position: relative;
+}
+
+.slick-track button {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  border: none;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+.slick-track button:before {
+  font-family: "xeicon";
+  color: white;
+  font-size: 18px;
+}
+/*
+ * 마우스 오버시에만 스크롤 바 보이도록 작업해야함
+*/
+.slick-track button.slick-prev {
+  left: 20%;
+  font-size: 0;
+  color: transparent;
+}
+
+.slick-track button.slick-prev:before {
+  content: "\e93b";
+}
+
+.slick-track button.slick-next {
+  right: 20%;
+  font-size: 0;
+  color: transparent;
+}
+.slick-track button.slick-next:before {
+  content: "\e93e";
+}
+/*
+ * 두 번째 섹션: 이 상품 어때요 Start
+*/
+.css-1wv14ue:first-of-type {
+  margin-top: 0px;
+}
+
+.css-1wv14ue {
+  margin: 40px 0px;
+}
+.css-1i60c0e {
+  width: 1050px;
+  margin: 0px auto;
+}
+.css-3j1fi2 {
+  padding: 40px 0px 40px;
+}
+.css-2u0lrw {
+  margin-bottom: 27px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.css-7xc07p {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.css-195c6n4 {
+  color: rgb(51, 51, 51);
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.26px;
+  font-weight: 600;
+}
+
+.css-1efm9d2 {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.45;
+  letter-spacing: -0.2px;
+  text-align: center;
+  color: rgb(153, 153, 153);
+  margin-top: 2px;
+}
+.css-109sxf0 {
+  padding: 0px 9px;
+}
+
+.css-13fhmnl {
+  position: relative;
+  z-index: 140;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 10px 0px 0px;
+}
+
+.css-1usngog {
+  position: relative;
+  z-index: 150;
+}
+
+.css-13sxcdl {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.css-4jombx {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.css-8msfms {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: flex-start;
+}
+.css-1a83kvf {
+  position: absolute;
+  z-index: 300;
+  display: block;
+  right: 16px;
+  bottom: 16px;
+  width: 45px;
+  height: 45px;
+}
+
+.css-1m1ntoc {
+  display: block;
+  border: 0px;
+  background: none;
+  outline: 0px;
+  user-select: none;
+}
+.em4wzeq0 {
+  background-color: rgba(0, 0, 0, 0);
+}
+.css-13fhmnl {
+  position: relative;
+  z-index: 140;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 4px 0px 0px;
+}
+#Kosta_main .css-6449wc {
+  display: none;
+}
+.css-fruqcr {
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgb(51, 51, 51);
+  font-weight: 400;
+  margin-bottom: -10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  letter-spacing: normal;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.css-1o7d3sk {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.css-1tt7nog {
+  color: rgb(250, 98, 47);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  margin-right: 7px;
+}
+
+.css-10edag5 {
+  color: rgb(51, 51, 51);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.css-rdpixd {
+  color: rgb(153, 153, 153);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: line-through;
+  margin-top: 2px;
+}
+
+.ListSwiper button {
+  position: absolute;
+  z-index: 100;
+  top: 40%;
+  border: none;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 1px 1px 3px rgba(3, 3, 3, 0.3);
+}
+.ListSwiper button:before {
+  font-family: "xeicon";
+  color: #5f0080;
+  font-size: 18px;
+}
+
+.ListSwiper button.slick-prev {
+  left: -2%;
+  font-size: 0;
+  color: transparent;
+}
+
+.ListSwiper button.slick-prev:before {
+  content: "\e93b";
+}
+
+.ListSwiper button.slick-next {
+  right: -2%;
+  font-size: 0;
+  color: transparent;
+}
+.ListSwiper button.slick-next:before {
+  content: "\e93e";
+}
+.css-1wv14ue:first-of-type {
+  margin-top: 0px;
+}
+.css-1wv14ue {
+  margin: 40px 0px;
+}
+
+.css-4o4zgy {
+  position: relative;
+  display: block;
+  height: 140px;
+  overflow: hidden;
+}
+
+.css-4o4zgy > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.css-17gixes {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 80px 0px;
+}
+
+.dealsCount-1 .css-1vrkvt,
+.dealsCount-2 .css-1vrkvt {
+  width: 338px;
+}
+
+.css-1vrkvt h2 {
+  font-size: 28px;
+  color: rgb(51, 51, 51);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.26px;
+  margin-bottom: 10px;
+}
+
+.css-1vrkvt h3 {
+  font-size: 16px;
+  color: rgb(153, 153, 153);
+  font-weight: normal;
+  line-height: 1.3;
+  letter-spacing: normal;
+  margin-bottom: 24px;
+}
+
+.css-k4zwli {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 47px;
+  padding-top: 4px;
+}
+.css-icvsn4 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-right: 6px;
+  width: 36px;
+  height: 36px;
+}
+
+/*
+* 일일 특가 카운트 부분의 시간 부분
+*/
+#count {
+  width: 50px;
+}
+
+.css-13lh3pe {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(51, 51, 51);
+}
+
+.css-74rjlf {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.css-1a9j4kk {
+  flex-shrink: 0;
+  min-width: 38px;
+  line-height: 47px;
+  text-align: center;
+  white-space: nowrap;
+  color: rgb(51, 51, 51);
+}
+
+.css-74rjlf img {
+  width: 11px;
+}
+.css-1vrkvt p {
+  font-size: 14px;
+  color: rgb(204, 204, 204);
+  font-weight: normal;
+  line-height: 1.43;
+  letter-spacing: -0.4px;
+  margin-top: 32px;
+}
+
+.dealsCount-1 .css-lv1kje,
+.dealsCount-2 .css-lv1kje {
+  width: 694px;
+}
+
+.css-pirfdp {
+  display: flex;
+  margin: 0px -9px;
+}
+.css-zkaslx {
+  padding: 0px 9px;
+  width: 50%;
+}
+
+.css-13sxcdl {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.css-pirfdp {
+  display: flex;
+  margin: 0px -9px;
+}
+.css-zkaslx {
+  padding: 0px 9px;
+  width: 50%;
+}
+.css-1usngog {
+  position: relative;
+  z-index: 150;
+}
+.css-13sxcdl {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.css-4jombx {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.css-8msfms {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: flex-start;
+}
+.css-ks9z5y {
+  padding: 0px 8px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 32px;
+  opacity: 0.9;
+}
+.css-i2s33r {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  line-height: 1.43px;
+}
+.css-bjn8wh {
+  position: relative;
+}

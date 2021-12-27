@@ -1,0 +1,392 @@
+#header, #container, #content {
+  position: relative;
+}
+
+div, th, td, li, dt, dd, p {
+  word-break: break-all;
+}
+
+div {
+  display: block;
+}
+#header1 {
+  width: 1050px;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.clearfix {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.bnr_header {
+  position: relative;
+  min-width: 1050px;
+  text-align: center;
+  line-height: 42px;
+  font-size: 14px;
+}
+
+.bnr_header a {
+  display: block;
+  height: 42px;
+  background-color: #5f0080;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bnr_header .bnr_arr {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  vertical-align: top;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+.bnr_header .bnr_arr {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  vertical-align: top;
+}
+
+.bnr_header .bnr_arr {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  vertical-align: top;
+}
+
+.bnr_header .inner_top_close {
+  position: relative;
+  width: 1050px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.bnr_header .btn_top_bnr {
+  background-image: url(https://res.kurly.com/pc/ico/1908/ico_close_fff_42x42.png);
+  width: 42px;
+  height: 42px;
+  background-color: transparent;
+  border: 0;
+  text-indent: -9999px;
+  position: absolute;
+  bottom: 0;
+  right: -15px;
+}
+
+#userMenu {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+#userMenu .list_menu {
+  float: right;
+  margin: 0 auto;
+}
+.list_menu {
+	font-family: noto sans;
+	font-weight: 400;
+	letter-spacing: -.3px;
+}
+
+#userMenu * {
+  font-weight: 400;
+  letter-spacing: -0.3px;
+}
+
+ol, ul {
+  list-style-type: none;
+  margin:0px;
+  padding:0px;
+}
+
+#userMenu .menu {
+  position: relative;
+  z-index: 400;
+  float: left;
+}
+
+#userMenu * {
+  font-family: noto sans;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+}
+
+#userMenu .menu_join .link_menu {
+  color: #333;
+}
+
+#userMenu .link_menu {
+  float: left;
+  height: 37px;
+  padding: 0 12px;
+  color: #333;
+  line-height: 35px;
+  white-space: nowrap;
+}
+.bnr_header {
+  margin: 0 auto;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+#headerLogo {
+  position: relative;
+  width: 1050px;
+  height: 63px;
+  margin: 0 auto;
+}
+
+.layout-wrapper {
+  position: relative;
+  width: 1050px;
+  height: 10px;
+  margin: 10 auto;
+}
+
+#headerLogo .logo {
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+#headerLogo .logo img {
+  display: block;
+  width: 103px;
+  height: 79px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+
+/* Menu */
+.gnb {
+  width: 1050px;
+  height: 60px;
+  background-color: white;
+  box-shadow: 0 3px 3px -10px #ddd;
+  margin: 0 10px 0 0;
+  margin-bottom: 0px;
+  
+  top: 0px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.gnb-fixed {
+  width: auto;
+  position: fixed;
+  top: 0px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.gnbMenu {
+  width: 1050px;
+  height: 56px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.gnbDetail {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  top: 10px;
+  padding: 15px 0 0 0;				/* 20px 임*/
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.menu1 {
+  width: 208px;
+  height: 40px;         			/* 없던거*/
+  padding: 0;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.menuName1 {
+  padding-left: 10px;
+}
+
+.menu1_sub:hover {
+  color: rgb(95, 0, 128);
+}
+.menu1_sub{
+	display:block;
+}
+
+.category {
+  width: 219px;
+  height: 590px;
+  padding: 0;
+  z-index: 1;
+  color: rgb(76, 76, 76);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  display: none;
+  position: absolute;
+  padding-bottom: 7px;
+  margin-top: 19px;
+  margin: 5 auto;
+}
+/*테스트용 3단 수평 드랍다운 시작*/
+.category_sub_three{
+	display: none;
+	width: 219px;
+  	height: 590px; 
+  	padding: 0;
+  	color: rgb(76, 76, 76);
+  	background-color: #fff;
+  	border: 1px solid #ddd;
+  	display: none;
+  	position: absolute;
+  	left: 210px;
+	top: -20px;
+  	padding-bottom: 7px;
+  	margin-top: 19px;
+  	margin: 5 auto;
+  	list-style: none;
+}
+.category_sub:hover > .category_sub_three, .category_sub_three_sub{
+	display: block;
+	background-color: rgb(241, 241, 241);
+}
+.category_sub_three_sub:hover {
+  	color: rgb(95, 0, 128);
+}
+.category_sub_three_sub {
+	height: 35px;
+  	list-style: none;
+  	z-index: 1;
+  	padding: 7px 0 0 14px;
+}
+
+/*테스트용 3단 수평 드랍다운 끝*/
+.category::-webkit-scrollbar{ 
+	display:none;
+}
+
+
+.category_sub {
+  height: auto;
+  list-style: none;
+  z-index: 1;
+  padding: 7px 0 0 14px;
+}
+
+.category_sub:hover {
+  background-color: rgb(241, 241, 241);
+  color: rgb(95, 0, 128);
+}
+
+.category_text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.menu1:hover .category {
+  display: block;
+}
+
+.menu2 {
+  width: 124px;
+  height: auto;
+  cursor: pointer;
+}
+
+.menu2:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.menu3 {
+  width: 110px;
+  height: auto;
+  cursor: pointer;
+}
+
+.menu4,
+.menu5 {
+  width: 116px;
+  height: auto;
+  cursor: pointer;
+}
+
+.menu4:hover,
+.menu5:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+.location_search {
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+  width: 220px;
+  height: 48px;
+  padding-left: 15px;
+  border-radius: 22px;
+  background-color: #f7f7f6;
+  font-size: 12px;
+  color: #666;
+  line-height: 16px;
+  border: none;
+}
+
+.search_icon {
+  width: 30px;
+  height: 30px;
+  margin: 13px 0 0 -35px;
+}
+
+.location_set {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  top: 2px;
+  left: 30px;
+  color: #333;
+}
+
+.location_set img:hover {
+  color: #333;
+}
+
+.cart {  
+  width: 50px;
+  height: 50px;
+  margin: -52px 230px 0px 50px;
+  float: right;
+}

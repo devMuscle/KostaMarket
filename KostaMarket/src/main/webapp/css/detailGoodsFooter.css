@@ -1,0 +1,167 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.clearfix {
+	clear: right;
+}
+
+#bigBlock {
+	width: 1510px;
+	border-top: 1px solid rgb(210, 210, 210);
+}
+
+#avgBlock {
+	width: 70%;
+	height: 340px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgb(210, 210, 210);;
+}
+
+#smallBlock1 {
+	display: block;
+	width: 50%;
+	padding-bottom: 20px;
+	border-right-color: black;
+	float: left;
+}
+
+#happycenter {
+	display: inline-block;
+	font-size: 20px;
+	margin: 0px;
+	padding-top: 29px;
+	color: #333;
+	font-weight: 800;
+	width: 50%;
+}
+
+.leftTable {
+	display: inline-block;
+	padding-top: 14px;
+	margin: 0px;
+}
+
+.smallLeftBig {
+	width: 160px;
+	height: 40px;
+}
+
+.smallLeftBig>p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 16px;
+	font-weight: 900;
+	font-size: 28px;
+	color: #333;
+}
+
+.smallLeftBig>button {
+	width: 140px;
+	height: 40px;
+	margin-top: 3px;
+	margin-right: 16px;
+	background-color: white;
+	border: 1px solid rgb(210, 210, 210);
+	border-radius: 3px;
+	font-weight: 800;
+	color: #333;
+	cursor: pointer;
+}
+
+.smallLeftsmall {
+	font-size: 14px;
+}
+
+.smallBlock1-2 {
+	font-size: 13px;
+	color: #999;
+}
+
+#smallBlock2 {
+	display: block;
+	font-size: 13px;
+	padding-top: 35px;
+	padding-bottom: 20px;
+	width: 50%;
+	float: right;
+}
+
+#smallBlock2>a {
+	text-decoration: none;
+	color: black;
+}
+
+#rightDetail {
+	padding-top: 29px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	line-height: 21.5px;
+	color: #999;
+}
+
+#rightDetail>a {
+	text-decoration: none;
+	color: #5f0080;
+}
+
+#smallBlock2>p {
+	font-size: 8px;
+	padding-top: 10px;
+	margin: 0px;
+	color: #999;
+}
+
+#iconBlock {
+	padding-top: 14px;
+	padding-bottom: 7px;
+}
+
+.icon {
+	width: 30px;
+	height: 30px;
+	border: 1px solid white;
+	border-radius: 50px;
+}
+
+.Ficon {
+	width: 34px;
+	height: 34px;
+}
+
+.FTicon {
+	width: 102px;
+	height: 34px;
+}
+
+.footerTable {
+	display: block;
+	float: left;
+	width: 50%;
+	padding-top: 40px;
+}
+
+.footerTableq {
+	display: block;
+	float: right;
+	width: 50%;
+	padding-top: 40px;
+}
+
+.footerTablew {
+	display: block;
+	float: left;
+	padding-top: 40px;
+}
+
+.footerTable3 {
+	font-size: 3px;
+}
+
+.footerTable3>a {
+	color: #999;
+	text-decoration: none;
+}
