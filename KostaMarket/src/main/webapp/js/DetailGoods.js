@@ -40,31 +40,30 @@ function onDisplay() {
 
 } // 怨듭����湲� 踰��� �대┃�� 蹂댁�닿� ��蹂댁�닿�
 
-function addCartList(productCode, customerId) {
+function addCartList(productCode,customerId) {
 	const countResultElement = document.getElementById('result');
-
+	
 	let id = customerId;
 	let Code = productCode;
 	let number = countResultElement.innerText;
-
+	
 	alert(id);			//if==null 은 어쨰서 동작하지 않지?
-	if (id == 'null') {
+	if(id=='null'){			
 		alert("로그인 후 이용 할수 있습니다.");
 		location.reload()
-	} else {
+	} else{
 		$.ajax({
 			url: "addCartList",
 			method: "Get",
 			data: { id: id, productCode: Code, productCount: number },
 			success: function(data) {
-				alert("요청하신 상품 " + number + "개가 장바구니에 추가되었습니다.");
+				alert("요청하신 상품 "+ number + "개가 장바구니에 추가되었습니다.");
+
 			}, error: function() {
 				alert("failed");
 			}
 		});
-
 	}
-
 }
 
 

@@ -35,9 +35,7 @@ function sum(type) {
 function fresh(code) {
 	
 	let codeValue = code;
-	if(codeValue == 'undefined'){
-		codeValue = 'all'; //전체보기
-	}
+	
 	$.ajax({
         url: "./category",
         method: "get",

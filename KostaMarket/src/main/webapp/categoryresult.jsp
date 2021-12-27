@@ -24,8 +24,8 @@ List<Product> list = (List)request.getAttribute("list");
 	                  <div class="item">
 	                    <div class="thumb">
 	                        <a href="http://localhost:8888/KostaMarket/detailgoods?product_code=<%=productCode%>">
-	                      <img src="<%=productImage%>" alt="GAP 크리스마스 샤인머스켓 포도 2kg"/>
-	                      </a>
+	                      		<img src="<%=productImage%>" alt="GAP 크리스마스 샤인머스켓 포도 2kg"/>
+	                      	</a>
 	                      <div class="group-btn">
 	                        <div class="btn btn-cart">
 	                          <a href="#"> </a>
@@ -48,9 +48,11 @@ List<Product> list = (List)request.getAttribute("list");
 	                	<li>
 		                  <div class="item">
 		                    <div class="thumb">
+		                    <a href="http://localhost:8888/KostaMarket/detailgoods?product_code=<%=productCode%>">
 		                      <img src="<%=productImage%>" alt="GAP 황금사과 2입" />
+		                    </a>  
 		                      <div class="group-btn">
-		                        <div class="btn btn-cart">
+		                        <div class="btn btn-cart"> 
 		                          <a href="#"> </a>
 		                        </div>
 		                      </div>

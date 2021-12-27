@@ -30,7 +30,7 @@ function loginClick() {
 					alert(responseObj.name + "님 환영합니다");
 					localStorage.setItem("savedid", idValue);
 					localStorage.setItem("savedpw", pwdValue);
-					location.href = "./main.html";
+					location.href = "./main";
 				}
 			},
 			error: function(xhr) {

@@ -35,7 +35,9 @@ public class CategoryServlet extends HttpServlet {
 		List<Product> list;
 		System.out.println("test용: "+ productCode.length());					//테스트용
 		//if(productCode == null || productCode.equals("") || productCode.equals("all")) {
-		if(productCode.length()==1) {
+
+		if(productCode.length() == 1) {
+
 			list = dao.categoryList(productCode); 
 		}else {
 			list = dao.detailCategoryList(productCode); 			
