@@ -58,13 +58,12 @@ function addCartList(productCode,customerId) {
 			data: { id: id, productCode: Code, productCount: number },
 			success: function(data) {
 				alert("요청하신 상품 "+ number + "개가 장바구니에 추가되었습니다.");
+
 			}, error: function() {
 				alert("failed");
 			}
 		});
-		
 	}
-
 }
 
 
