@@ -49,6 +49,9 @@ public class SignUpServlet extends HttpServlet {
 		
 		CustomerService customerService = new CustomerService();
 		customerService.singUp(customer);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("./main.jsp");
+		rd.forward(request, response);
 	}
 
 }
