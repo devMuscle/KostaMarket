@@ -37,9 +37,14 @@ public class CategoryServlet extends HttpServlet {
 		//if(productCode == null || productCode.equals("") || productCode.equals("all")) {
 
 		if(productCode.length() == 1) {
-
 			list = dao.categoryList(productCode); 
-		}else {
+		} else if(productCode.equals("sale")) {
+			list = dao.saleList(); 
+		} else if(productCode.equals("best")) {
+			list = dao.bestList(); 
+		} else if(productCode.equals("new")) {
+			list = dao.newList(); 
+		} else {
 			list = dao.detailCategoryList(productCode); 			
 		}		
 		request.setAttribute("list", list);

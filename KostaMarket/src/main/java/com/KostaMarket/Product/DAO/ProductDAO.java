@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.KostaMarket.Cart.vo.Cart;
 import com.KostaMarket.Common.MyConnection;
 import com.KostaMarket.Product.vo.Product;
 
@@ -157,6 +156,11 @@ public class ProductDAO {
 		String SQL = "select * from cart";
 		ResultSet rs = null;
 		ResultSet compareRs = null;
+		
+		//카트 최대 번호 찾기
+		int[] cartCodeMax = new int[99];
+		int max = 0;
+		int cartIntCount = 0;
 
 		// 동일한 상품이 없을 때 업데이트 질의문
 		String SQLUpdate = "insert into cart(cart_code, product_count, id_id, product_code_product_code) values(?,?,?,?)";
@@ -177,7 +181,8 @@ public class ProductDAO {
 				compareId = rs.getString("id_id");
 				compareProductCode = rs.getString("product_code_product_code");
 				compareCount = rs.getInt("product_count");
-				System.out.println("비교전 자료 확인 " + compareId + " " + compareProductCode + " " + compareCount);
+				cartCode = rs.getString("cart_code");				//새로추가 코드 카드번호 계산할 떄 사용
+				//System.out.println("비교전 자료 확인 " + compareId + " " + compareProductCode + " " + compareCount + "" + cartCode);
 
 				if ((compareId.equals(customerId)) && (compareProductCode.equals(cartProductCode))) {
 					count = count + compareCount;
@@ -190,15 +195,33 @@ public class ProductDAO {
 					System.out.println("동일한 상품 있을 때 업데이트 완료"); // 동일한 상품이 있을 때 DB 결과 업데이트
 					flag = 1;
 				}
-				cartCode = rs.getString("cart_code"); // 동일한 상품이 없을 때 DB 결과 값 커서 끝으로 이동용
-				row = rs.getRow();
-
-				System.out.println("cartCode 확인: " + cartCode + "\nRow 확인: " + row);
-				row++; // cartCode 연산값 확인
+//				cartCode = rs.getString("cart_code"); // 동일한 상품이 없을 때 DB 결과 값 커서 끝으로 이동용
+//				row = rs.getRow();
+//
+//				System.out.println("cartCode 확인: " + cartCode + "\nRow 확인: " + row);
+//				row++; // cartCode 연산값 확인
+							
+				cartCodeMax[cartIntCount] = Integer.parseInt(cartCode.substring(4));
+//				System.out.println(cartCodeMax[cartIntCount]+ "\t"+cartIntCount);
+				cartIntCount++;
 			}
+			
+			//cart번호 가장 큰수 찾기
+			for(int i: cartCodeMax) {
+				if(i>max) {
+					max = i;
+				}
+//				System.out.println("가장큰수 찾기" + max + "\t" + i);
+//				System.out.println(max);
+			}
+			
 			if (flag == 0) {
-				cartCode = "cart" + String.valueOf(row);
-				System.out.println(cartCode);
+				//System.out.println("if 문에서 cartCode 확인: " + cartCode + "\nRow 확인: " + row);
+				max++;
+//				System.out.println("if문에서 max 값 확인" + max);
+				
+				cartCode = "cart" + String.valueOf(max);
+//				System.out.println(cartCode);
 
 				pstmt = con.prepareStatement(SQLUpdate);
 				pstmt.setString(1, cartCode);
@@ -207,11 +230,11 @@ public class ProductDAO {
 				pstmt.setString(4, cartProductCode);
 
 				pstmt.executeUpdate();
-				System.out.println("동일한 상품 없을 때 업데이트 완료"); // 동일한 상품이 없을 때 DB 결과 업데이트
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			
 		} finally {
 			try {
 				MyConnection.close(rs, pstmt, con);
@@ -221,12 +244,12 @@ public class ProductDAO {
 
 		}
 	}
-		   
+
 	public static void main(String[] args) {
 
 		ProductDAO cart = new ProductDAO();
 		try {
-			cart.addCartListInfo("id2", "p03", "3");
+			cart.addCartListInfo("id2", "BA01", "1");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

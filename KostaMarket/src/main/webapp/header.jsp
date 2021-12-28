@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
       rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -56,7 +57,7 @@
 		              <span class="link_menu"><%=customerName %>님</span>
 	              </span>
 	            <li class="menu 1st">
-	              <a href="로그아웃.jsp 넣어야함" class="link_menu">로그아웃</a>
+	              <a href="#none" class="link_menu" onclick="logout();">로그아웃</a>
 	            </li>
 	          </ul>
 	     <%} %>
@@ -89,6 +90,10 @@
           }
         });
       } );
+      
+      function logout(){
+    	   location.href="./logout.jsp";
+    	 }
     </script>
       <div class="jbMenu gnb" >
         <div class="gnbMenu">
@@ -248,10 +253,18 @@
                 </li>
               </ul>
             </ul>
-            <li class="menu2">신상품</li>
-            <li class="menu3">베스트</li>
-            <li class="menu4">알뜰쇼핑</li>
-            <li class="menu5">특가/혜택</li>
+            <a href = "./newProduct.html">
+            	<li class="menu2">신상품</li>
+            </a>
+            <a href = "./bestProduct.html">
+            	<li class="menu3">베스트</li>
+            </a>
+            <a href = "./saleProduct.html">
+            	<li class="menu4">알뜰쇼핑</li>
+            </a>
+            <a href = "./benefit.jsp">
+            	<li class="menu5">특가/혜택</li>
+            </a>
           </ul>
 
   		  <div class="location_search">

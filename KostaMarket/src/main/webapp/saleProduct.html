@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/category.css" />
+    <script type="text/javascript"src="./js/category.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <title>마켓컬리 :: 내일의 장보기, 마켓컬리</title>
+    <script>
+    $(function(){
+    	//$('div.list-goods ul.list').load("category");
+    	$.ajax({
+    		url: "category",
+    		method : 'get',
+    		data: {productCode: 'sale'},
+    		success:function(data){
+    			$('div.list-goods ul.list').html(data);
+    		}
+    	});
+    });
+    $(function(){
+        $("#includedContent").load("footer.html");
+      });
+
+    //해더 추가하는 자바스크립트
+      $(function(){
+    	  $("#includedHeader").load("header.jsp");
+      });
+	</script>
+	<div id="includedHeader" style="box-shadow: 0px 2px #eee;"></div>
+  </head>
+  <body>
+  
+  
+  
+    <div class="page-article">
+      <div id="inr-category">
+        <div class="bnr-category">
+          <div class="bnr-category-image">
+            <img
+              src="./images/saleBanner.webp"
+              alt="카테고리 베너"
+            />
+          </div>
+        </div>
+        <div class="inner-title">
+          <h3 class="tit">알뜰쇼핑</h3>
+        </div>
+        
+        <!-- menu end -->
+        
+        
+        <div id="goods-list">
+          <div class="list-bar">
+            <div class="sort-menu">
+              <p class="count">
+                <span class="inner-count">총 76개</span>
+              </p>
+              <div class="select-type">
+                <a href="#">추천순 </a>
+                <a href="#">신상품순</a>
+                <a href="#">판매량순</a>
+                <a href="#">혜택순</a>
+                <a href="#">낮은 가격순</a>
+                <a href="#">높은 가격순</a>
+              </div>
+            </div>
+          </div>
+          <div class="list-goods">
+            <div class="inner-listgoods">
+              <ul class="list">
+              <!--  목록 보여줄 영역 -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer>
+    	<div id="includedContent"></div>
+   </footer>
+</html>
