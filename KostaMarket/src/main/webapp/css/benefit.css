@@ -1,0 +1,50 @@
+@charset "UTF-8";
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+.page_article * {
+  font-family: noto sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+div,
+th,
+td,
+li,
+dt,
+dd,
+p {
+  word-break: break-all;
+}
+
+ol,
+ul {
+  list-style-type: none;
+}
+
+.page-article {
+  width: 1050px;
+  margin: 0 auto;
+  letter-spacing: 0;
+  font-family: noto-sans;
+}
+
+
+.bnr-category-image img {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0px;
+  padding-bottom: 10px;
+  border: 0;
+  max-width: 100%;
+}
+
+.bnr-category {
+  position: relative;
+  margin: 0 auto 20px;
+  
+}

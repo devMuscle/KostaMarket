@@ -253,10 +253,18 @@
                 </li>
               </ul>
             </ul>
-            <li class="menu2">신상품</li>
-            <li class="menu3">베스트</li>
-            <li class="menu4">알뜰쇼핑</li>
-            <li class="menu5">특가/혜택</li>
+            <a href = "./newProduct.html">
+            	<li class="menu2">신상품</li>
+            </a>
+            <a href = "./bestProduct.html">
+            	<li class="menu3">베스트</li>
+            </a>
+            <a href = "./saleProduct.html">
+            	<li class="menu4">알뜰쇼핑</li>
+            </a>
+            <a href = "./benefit.jsp">
+            	<li class="menu5">특가/혜택</li>
+            </a>
           </ul>
 
   		  <div class="location_search">
