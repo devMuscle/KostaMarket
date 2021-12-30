@@ -178,7 +178,7 @@ List<Cart> list = (List)request.getAttribute("list");
                             </div>
                         </div>
                     </div>
-                    <button id = "orderButton" onclick = "helpMe()">주문하기</button>
+                    <button id = "orderButton" onclick = "moveOrder(<%=flagI%>)">주문하기</button>
                     <div id = "notice">
                         <p>쿠폰/적립금은 주문서에서 사용가능합니다</p>
                         <p>'입금확인' 상태일 때는 주문 내역 상세에서 직접 주문취소가 가능합니다.</p>

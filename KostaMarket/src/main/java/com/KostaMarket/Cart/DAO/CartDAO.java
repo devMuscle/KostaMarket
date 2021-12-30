@@ -22,7 +22,8 @@ public class CartDAO {
 	        	 
 	             String query = " SELECT p.product_image, p.product_name, product_count, id_id, \r\n"
 	             		+ "       p.product_price, p.product_packing, p.product_sale_pct, \r\n"
-	             		+ "       cu.detail_address, cu.road_address, cu.zone_code, cart_code, product_code_product_code\r\n"
+	             		+ "       cu.detail_address, cu.road_address, cu.zone_code, cart_code, product_code_product_code,\r\n"
+	             		+ "       cu.email, cu.name, cu.phone, cu.member_ship_point\r\n"
 	             		+ "FROM cart cart\r\n"
 	             		+ "INNER JOIN customer cu ON cart.id_id = cu.id\r\n"
 	             		+ "INNER JOIN product p ON cart.product_code_product_code = p.product_code";
@@ -52,6 +53,10 @@ public class CartDAO {
 	                String detailAddress = rs.getString("detail_address");
 	                String roadAddress = rs.getString("road_address");
 	                int zoneCode = rs.getInt("zone_code");
+	                String email = rs.getString("email");
+	                String phone = rs.getString("phone");
+	                String name = rs.getString("name");
+	                int memberShipPoint = rs.getInt("member_ship_point");
 	                
 	                Cart cart = new Cart();
 	                cart.setCartCode(cartCode);
@@ -68,7 +73,12 @@ public class CartDAO {
 	                cart.setDetailAddress(detailAddress);
 	                cart.setRoadAddress(roadAddress);
 	                cart.setZoneCode(zoneCode);
-	            
+	                cart.setName(name);
+	                cart.setEmail(email);
+	                cart.setPhone(phone);
+	                cart.setMemberShipPoint(memberShipPoint);
+	                
+	                
 	                list.add(cart); //설정된 Cart객체를 다시 ArrayList에 저장
 	                
 	                System.out.print(productCode);

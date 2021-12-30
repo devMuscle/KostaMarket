@@ -93,7 +93,6 @@ function deleteSend() {
 	//checkbox 값 가져오기
 	let checkBoxes = document.getElementsByName("chkbox");
 	
-	
 	//배열에 checkbox 값 추가
 	for (var i = 0; i < checkBoxes.length; i++) {
 		if (checkBoxes[i].checked) {
@@ -207,4 +206,12 @@ function modifyCount(type, flagI)  {
 //배송지 변경, 주문하기
 function helpMe() {
 	alert("구현되지 않은 기능입니다.");
+}
+
+function moveOrder(flag) {
+	if(flag == 0) {
+		alert("장바구니에 상품이 없습니다.");
+	} else {
+		location.href = "./payment";
+	}
 }

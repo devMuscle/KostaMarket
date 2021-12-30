@@ -41,10 +41,10 @@
         <%if(customerId==null){ %>
           <ul class="list_menu">
             <li class="menu none_sub menu_join">
-              <a href="./signup.jsp" class="link_menu">회원가입</a>
+              <a href="./signup" class="link_menu">회원가입</a>
             </li>
             <li class="menu none_sub menu_join">
-              <a href="./login.jsp" class="link_menu">로그인</a>
+              <a href="./login" class="link_menu">로그인</a>
             </li>
             <li class="menu 1st">
               <a href="#" class="link_menu">고객센터</a>
