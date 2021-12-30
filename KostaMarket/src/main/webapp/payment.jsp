@@ -11,7 +11,8 @@ List<Cart> list = (List)request.getAttribute("list");
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+<title>마켓컬리 :: 내일의 장보기, 마켓컬리</title>
     <link rel="stylesheet" type="text/css" href="./css/payment.css" />
     <div id="includedHeader"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

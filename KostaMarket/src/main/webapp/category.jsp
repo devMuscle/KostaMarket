@@ -19,8 +19,8 @@ List<Product> list = (List)request.getAttribute("list");
 	      });
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-    <title>마켓컬리 :: 내일의 장보기, 마켓컬리</title>
+<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+<title>마켓컬리 :: 내일의 장보기, 마켓컬리</title>
     
     <meta charset="UTF-8">
   </head>

@@ -1,6 +1,4 @@
-
 <%--product.vo 임포트 --%> <!-- useBean setProperty는 언제쓰는거지? -->
-
 <%@page import="com.KostaMarket.Product.vo.Product"%>
 <%@page import="com.KostaMarket.Customer.vo.Customer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,7 +13,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>마켓컬리 클론</title>
+<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+<title>마켓컬리 :: 내일의 장보기, 마켓컬리</title>
 
 <%-- import product_detail.css --%>
 <link rel="stylesheet" type="text/css" href="./css/product_detail.css">
@@ -27,10 +26,8 @@
 <script type="text/javascript" src="./js/DetailGoods.js" charset="utf-8"%></script>
 
 <%-- import javascript slick slider --%>
-
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 
 <%-- 페이지 내 부드럽게 이동 및 slick 스타일 재정의--%>
 <style>
@@ -77,7 +74,7 @@ html {
 </head>
 <body>
 	<%-- product vo 변수 선언 --%>
-	<%!String product_code;
+	<%String product_code;
 	String product_allergy;
 	String product_breeding_code;
 	String product_capacity;
@@ -92,10 +89,13 @@ html {
 	int product_price;
 	int product_sale_pct;
 	String product_weight;
-	int product_category;
-	int product_sale_price;
-	String product_sale_price2;
-	String contents_image1;
+	int product_category;			//db내용 저장용 변수
+	int product_sale_price;			//할인 금액 저장용 변수
+	String product_price2;			//천단위 , 찎는 용
+	String product_sale_price2;		
+	int product_membershipPoint;		//맴버쉽 포인트
+	String product_membershipPoint2;
+	String contents_image1;				//상세내용 이미지 경로 1·2
 	String contents_image2;
 	%>
 	<%-- 로그인 세션정보 불러오기 --%>
@@ -108,11 +108,11 @@ html {
 		System.out.println("아이디"+customerId);
 	}
 	%>
-	<%-- 현재상품 정보 불러오기 Product 오브젝 형태--%>
+	<%-- 현재상품 정보 request에서 불러오기 Product 오브젝 형태--%>
 	<%
 	Product productObj = (Product) request.getAttribute("product");
 	
-	//session처럼 해도 되나?
+	//db내용 저장 session처럼 해도 되나? 
 	product_code = productObj.getProductCode();
 	product_allergy = productObj.getProductAllergy();
 	product_breeding_code = productObj.getProductBreedingCode();
@@ -130,20 +130,24 @@ html {
 	product_weight = productObj.getProductWeight();
 	product_category = productObj.getProductCategory();
 
-	product_sale_price = (product_price * (100-product_sale_pct)) / 100;
-	System.out.println(product_sale_price);
+	product_sale_price = (product_price * (100-product_sale_pct)) / 100;		//할인가 계산
+	product_membershipPoint = Math.round(product_price * 5 / 100);			//맴버쉽 반올림
 	DecimalFormat df = new DecimalFormat("###,###");
-	String product_price2;
 	product_price2 = df.format(product_price);
 	product_sale_price2 = df.format(product_sale_price);
+	product_membershipPoint2 = df.format(product_membershipPoint);
 	
 	contents_image1 = product_image.substring(1);
-	System.out.println(contents_image1);
+	System.out.println(contents_image1);			//제품설명 이미지 경로
 	contents_image2 = product_image.substring(1,24);
 	contents_image2 = contents_image2 + ".webp";
-	System.out.println(contents_image2);
+	System.out.println(contents_image2);			//제품 상세설명  이미지 경로
+	
+	System.out.println(product_instructions);
+	product_instructions = product_instructions.replaceAll(" -", "\n-");//문장 개행 만들기
+	System.out.println(product_instructions);
 	%>
-
+	
 	<%-- 연관상품 정보 불러오기 List 형태 --%>
 	<%
 	List<Product> list = (List) request.getAttribute("list");
@@ -164,7 +168,6 @@ html {
 								<div class="inner_layersns">
 									<h3 class="screen_out">SNS 공유하기</h3>
 									<ul class="list_share">
-
 										<li>
 											<a class="btn btn_fb" data-sns-name="페이스북" data-sns="facebook" href="#none">
 												<img src="./images/product/ico_facebook.jpg" alt="페이스북">
@@ -184,7 +187,6 @@ html {
 												<img src="./img/product/ico_checked_x2.jpg" alt="">
 											</a>
 										</li>
-
 									</ul>
 								</div>
 								<%--안보이는 공유 div 레이어 끝--%>
@@ -196,15 +198,12 @@ html {
 							<%-- 상품소개 정보 판매단위, 중량/용량 등 시작 --%>
 							<div class="inner_view">
 								<div class="thumb">
-
 										<img src="<%=product_image%>" class="bg">
-
 								</div>
 								<%--상품명--%>
 								<p class="goods_name">
 									<span class="btn_share">
 										<button id="btnShare" onclick="onDisplay();">테스트용 텍스트</button>
-
 									</span> 
 									<strong class="name"><%=product_name%></strong> 
 									<span class="short_desc"></span>
@@ -240,11 +239,10 @@ html {
 									<span class="not_login"> 
 										<span>로그인 후, 적립혜택이 제공됩니다.</span>
 									</span>
-								<% } %>
+								<% } else{}%>
 								</p>
 								<%-- 상품명 가격 적립금 p태그 끝 --%>
 								
-
 								<%-- 상품정보 판매, 중량/용량 등 시작 --%>
 								<div class="goods_info">
 									<dl class="list fst">
@@ -261,16 +259,12 @@ html {
 										<dt class="tit">배송구분</dt>
 										<dd class="desc"><%=product_delivery%></dd>
 									</dl>
-
 								<%if (product_country_origin != null) {%>
-
 									<dl class="list">
 										<dt class="tit">원산지</dt>
 										<dd class="desc"><%=product_country_origin%></dd>
 									</dl>
-
 								<%} else {}%>
-
 									<dl class="list">
 										<dt class="tit">포장타입</dt>
 										<dd class="desc">
@@ -279,53 +273,41 @@ html {
 											<strong class="emph">택배배송은 에코포장이 스티로폼으로 대체됩니다.</strong>
 										</dd>
 									</dl>
-
-								<%if (product_country_origin != null) {%>
-
+								<%if (product_allergy != null) {%>
 									<dl class="list">
 										<dt class="tit">알레르기정보</dt>
-										<dd class="desc"><%=product_country_origin%></dd>
+										<dd class="desc"><%=product_allergy%></dd>
 									</dl>
-
 								<%} else{}%>
 
 								<%if (product_expiration != null) {%>
-
 									<dl class="list">
 										<dt class="tit">유통기한</dt>
 										<dd class="desc"><%=product_expiration%></dd>
 									</dl>
-
 								<%} else {}%>
 
 								<%if (product_breeding_code != null) {%>
-
 									<dl class="list">
 										<dt class="tit">사육환경번호</dt>
 										<dd class="desc"><%=product_breeding_code%></dd>
 									</dl>
-
 								<%} else {}%>
 
 								<%if (product_livestock_history != null) {%>
-
 									<dl class="list">
 										<dt class="tit">축산물이력정보</dt>
 										<dd class="desc"><%=product_livestock_history%></dd>
 									</dl>
-
 								<%} else {}%>
 
 								<%if (product_instructions != null) {%>
-
 									<dl class="list">
 										<dt class="tit">안내사항</dt>
 										<dd class="desc"><%=product_instructions%></dd>
 									</dl>
-
 								<%} else {}%>
 								</div><%--상품정보 판매, 중량/용량 등 끝--%>
-
 							</div>
 						</div>
 
@@ -335,7 +317,6 @@ html {
 								<div class="inner_option">
 									<div class="in_option">
 										<div class="list_goods">
-
 											<ul id="ul_product" class="list list_nopackage" style="padding:0px;">
 												<li class="on">
 													<span class="btn_position">
@@ -350,7 +331,6 @@ html {
 													</span>
 													</div>
 												</li>
-
 											</ul>
 										</div>
 										<div class="total">
@@ -362,18 +342,19 @@ html {
 												</span>
 											</div>
 											<%--로그인 비교 구현 필요 --%>
-
+											<%if(customerId==null){ %>
 												<p class="txt_point">
 													<span class="ico">적립</span> <span class="no_login">
 														<span>로그인 후, 적립혜택 제공</span>
 													</span>
 												</p>
+											<%}else{%>
 												<p class="txt_point">
 													<span class="ico">적립</span> <span class="no_login">
-														<span>구매 시 원 적립</span>
+														<span>구매 시 <%=product_membershipPoint2%>원 적립</span>
 													</span>
 												</p>
-
+												<%}%>
 										</div>
 									</div>
 									<div class="group_btn off">
@@ -381,11 +362,9 @@ html {
 											<button id="button_product" type="button" class="btn btn_alarm">재입고 알림</button>
 										</div>
 										<span class="btn_type1">
-
 											<button type="button" class="txt_type" onclick='addCartList("<%=product_code%>","<%=customerId%>")'>
 												장바구니 담기
 											</button>
-
 										</span>
 									</div>
 								</div>
@@ -430,7 +409,9 @@ html {
 										</span>
 									</div>
 								</div>
-							</div>	
+							</div>
+							
+							
 							<div class="cart_option cart_result cart_type3">
 								<div class="inner_option">
 									<button id="button_product" type="button" class="btn_close1">pc레이어닫기</button>
@@ -494,14 +475,12 @@ html {
 						productPrice2 = ddf.format(productPrice);
 				%>
 				<div style="border: 1px solid gray; margin: 0px 10px">
-
 					<a href="http://localhost:8888/KostaMarket/detailgoods?product_code=<%=productCode%>">
 						<img src="<%=productImage%>" width=180px height=230px>
 					</a>
 					<div style="padding: 10px; position: relative; min-height: 75px;">
 						<p style="overflow: hidden;margin-top:0px;margin-bottom:30px; top: 10px;width: 100%; height: 35px; font-size: 13px; font-weight: 700; color: #4c4c4c; line-height: 18px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;"><%=productName%></p>
 						<p style="font-size: 13px; position: absolute; left: 10px; bottom: 10px;"><%=productPrice2%>원
-
 						</p>
 					</div>
 				</div>

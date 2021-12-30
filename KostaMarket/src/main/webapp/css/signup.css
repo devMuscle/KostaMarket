@@ -48,8 +48,13 @@ div {
 }
 
 div#content {
+	/*
 	width: 1519.2px;
 	height: 1189.4px;
+	*/
+	position: relative;
+	min-width: 1050px;
+	padding-bottom: 60px;
 }
 
 body, input, select, textarea, button {
@@ -495,15 +500,18 @@ input[type="button"]#address {
 	color: #5f0080;
 	display: inline-block;
 	font-size: 14px;
-	background: url(https://res.kurly.com/pc/service/common/2006/ico_search.svg) no-repeat 0 50%;
+	background:
+		url(https://res.kurly.com/pc/service/common/2006/ico_search.svg)
+		no-repeat 0 50%;
 	background-color: transparent;
 	text-decoration: none;
 	font-family: 'Noto Sans KR';
-	font-weight : 700;
+	font-weight: 700;
 }
 
-input[type="text"]#sample6_postcode, input[type="text"]#sample6_address, input[type="text"]#sample6_detailAddress{
+input[type="text"]#sample6_postcode, input[type="text"]#sample6_address,
+	input[type="text"]#sample6_detailAddress {
 	width: 332px;
 	height: 44px;
-	display : none;
+	display: none;
 }

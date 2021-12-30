@@ -16,7 +16,8 @@ List<Cart> list = (List)request.getAttribute("list");
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
 <meta charset="UTF-8">
-<title>코스타 마켓 :: 내일의 장보기, 코스타 마켓</title>
+<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+<title>마켓컬리 :: 내일의 장보기, 마켓컬리</title>
 <script>
     $(function(){
       $("#includedContent").load("footer.html");
